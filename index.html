@@ -306,7 +306,11 @@
               <a src="papers/STAP-ICRA-2023.pdf">PDF</a> / <a href="https://arxiv.org/abs/2210.12250">arXiv</a> / <a href="https://sites.google.com/stanford.edu/stap/home">Project Site</a>
               <p>Solving sequential manipulation tasks requires coordinating long-horizon geometric dependencies between actions. 
                 We outline a scalable framework for training manipulation skills independently, and then combine the skills at planning
-                time to solve unseen long-horizon tasks via sampling-based optimization.
+                time to solve unseen long-horizon tasks. Planning is formulated as an maximization problem over the expected success 
+                of the skill sequence, which we estimate by the product of Q-values.
+                
+                
+                via sampling-based optimization.
               </p>
             </td>
           </tr>
