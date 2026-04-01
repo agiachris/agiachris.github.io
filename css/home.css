@@ -1,0 +1,269 @@
+/**
+ * Homepage layout — table-based grid preserved for pixel-stable rendering.
+ * Typography complements stylesheet.css (Lato, link colors).
+ */
+
+:root {
+  --color-page-bg: #f9f9f9;
+  --color-section-header: #eee;
+  --color-text-muted: #444;
+  --color-accordion-bg: #eee;
+  --color-accordion-hover: #ccc;
+  --color-representative: #e0ffe0;
+  --color-award: #f00;
+  --layout-max-width: 875px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Accessibility */
+/* -------------------------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 10000;
+  padding: 0.5rem 1rem;
+  background: var(--color-page-bg);
+  font-family: "Lato", Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  outline: 2px solid #1772d0;
+}
+
+.site-main {
+  display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Profile & section typography (replaces non-standard <name>, <heading>, <papertitle>) */
+/* -------------------------------------------------------------------------- */
+
+.profile-name {
+  margin: 0;
+  font-weight: 400;
+  font-size: 32px;
+  font-family: "Lato", Verdana, Helvetica, sans-serif;
+}
+
+.section-heading {
+  margin: 0;
+  font-weight: 400;
+  font-size: 22px;
+  font-family: "Lato", Verdana, Helvetica, sans-serif;
+}
+
+.section-heading--mono {
+  font-family: monospace;
+  font-size: 22px;
+  color: var(--color-text-muted);
+}
+
+.section-heading--updates {
+  font-family: monospace;
+  font-size: 16px;
+  color: var(--color-text-muted);
+}
+
+.paper-title {
+  font-family: "Lato", Verdana, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.research-lede {
+  font-size: 16px;
+}
+
+.text-sm {
+  font-size: 13px;
+}
+
+.text-award {
+  color: var(--color-award);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Page background */
+/* -------------------------------------------------------------------------- */
+
+body {
+  background-color: var(--color-page-bg);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Representative works (table rows + inline legend span) */
+/* -------------------------------------------------------------------------- */
+
+.representative {
+  background-color: var(--color-representative);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Collapsible & accordion (legacy class names retained for JS) */
+/* -------------------------------------------------------------------------- */
+
+.accordion {
+  background-color: var(--color-accordion-bg);
+  color: #444;
+  cursor: pointer;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  text-align: right;
+  outline: none;
+  font-size: 22px;
+  font-family: monospace;
+  transition: background-color 0.4s;
+}
+
+.accordion:hover,
+.accordion.active {
+  background-color: var(--color-accordion-hover);
+}
+
+.panel {
+  padding: 0;
+  width: 100%;
+  vertical-align: middle;
+  background-color: var(--color-page-bg);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.collapsible {
+  background-color: var(--color-page-bg);
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: right;
+  outline: none;
+  font-family: monospace;
+  transition: background-color 0.4s;
+}
+
+.collapsible:hover,
+.collapsible.active {
+  background-color: var(--color-accordion-hover);
+}
+
+.collapsible + .content {
+  display: none;
+  overflow: hidden;
+  background-color: var(--color-page-bg);
+  transition: max-height 0.4s ease-out;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Layout tables — match legacy inline table/td rules */
+/* -------------------------------------------------------------------------- */
+
+.tbl {
+  width: 100%;
+  border: 0;
+  border-spacing: 0;
+  border-collapse: separate;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.tbl--page {
+  max-width: var(--layout-max-width);
+}
+
+.tbl--page-spaced {
+  max-width: var(--layout-max-width);
+  margin-top: 20px;
+}
+
+.tbl--surface {
+  background-color: var(--color-page-bg);
+}
+
+.tbl--pad-top {
+  padding-top: 12.5px;
+}
+
+.cell-pad-0 {
+  padding: 0;
+}
+
+.cell-profile-photo {
+  padding: 2.5%;
+  width: 40%;
+  max-width: 40%;
+}
+
+.cell-profile-bio {
+  padding: 2.5%;
+  width: 63%;
+  vertical-align: middle;
+  background-color: var(--color-page-bg);
+}
+
+.profile-photo-img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.section-label {
+  text-align: right;
+  background-color: var(--color-section-header);
+  padding: 14px;
+}
+
+.section-label--updates {
+  text-align: right;
+  background-color: var(--color-section-header);
+  padding: 10px;
+}
+
+.updates-scroll {
+  height: 125px;
+  overflow-y: scroll;
+  padding: 10px;
+  background-color: var(--color-page-bg);
+}
+
+.updates-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+  font-family: "Lato", Helvetica, sans-serif;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.cell-thumb {
+  padding: 20px;
+  width: 25%;
+  vertical-align: middle;
+}
+
+.cell-full {
+  padding: 20px;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.cell-full-surface {
+  padding: 20px;
+  width: 100%;
+  vertical-align: middle;
+  background-color: var(--color-page-bg);
+}
