@@ -2,19 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <script>
+      (function () {
+        var pref = localStorage.getItem("theme-pref") || "auto";
+        var isDark = pref === "dark" || (pref === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme-pref", pref);
+      })();
+    </script>
     <meta name="author" content="Christopher Agia">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Chris Agia - Robotics and Learning</title>
+
+    <title>Chris Agia</title>
 
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
-    <link rel="icon" type="image/png" href="images/ml_icon.png">
+    <link rel="icon" type="image/png" href="images/ca-favicon.png">
   </head>
 
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="site-header-inner">
+      <div class="site-header-content">
+        <div class="header-icons">
+          <a href="mailto:cagia@cs.stanford.edu" title="Email" aria-label="Email">
+            <svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+          </a>
+          <a href="https://scholar.google.com/citations?user=t8Em5FwAAAAJ&hl=en" title="Google Scholar" aria-label="Google Scholar" target="_blank" rel="noopener">
+            <svg viewBox="5 49 374 414" fill="currentColor" aria-hidden="true"><path d="M 343.75868,106.66243 V 79.430205 L 363.52365,63.999997 H 149.63354 L 20.476345,176.2736 h 85.656075 c -0.15534,2.12494 -0.21914,4.04644 -0.21914,6.22563 0,20.84472 7.2192,38.08662 21.67203,51.86089 14.45284,13.79702 32.25124,20.64784 53.32651,20.64784 4.92319,0 9.75059,-0.36794 14.43842,-1.02419 -2.90722,6.50082 -4.37457,12.52302 -4.37457,18.14228 0,9.87526 4.49924,20.4304 13.46715,31.6418 -39.23377,2.6705 -68.06112,9.73264 -86.43702,21.16322 -10.53108,6.49907 -19.000207,14.70396 -25.390349,24.5311 -6.390569,9.89933 -9.577754,20.51525 -9.577754,31.9616 0,9.64822 2.062375,18.33611 6.21907,26.06233 4.156694,7.7263 9.577757,14.07047 16.312223,18.98408 6.71825,4.96781 14.46899,9.10088 23.219,12.46874 8.73429,3.34378 17.40643,5.71858 26.06106,7.06258 8.62707,1.34222 17.20471,1.9985 25.70579,1.9985 13.46887,0 26.95353,-1.73428 40.54711,-5.18707 13.56165,-3.48461 26.28022,-8.64143 38.17105,-15.4927 11.85935,-6.80488 21.51545,-16.0865 28.9219,-27.7183 7.39024,-11.67998 11.09457,-24.80499 11.09457,-39.33613 0,-11.01584 -2.24964,-21.03852 -6.7502,-30.14073 -4.46864,-9.07202 -9.93785,-16.54102 -16.45271,-22.34403 -6.5008,-5.81263 -12.99987,-11.15539 -19.51512,-15.9679 -6.50083,-4.84488 -12.00021,-9.75058 -16.46884,-14.8129 -4.4848,-5.04657 -6.73444,-10.05419 -6.73444,-14.98395 0,-4.92145 1.73422,-9.67183 5.21588,-14.26559 3.45451,-4.6095 7.67376,-9.04795 12.60967,-13.30571 4.93756,-4.24944 9.87523,-8.96788 14.79665,-14.13302 4.92147,-5.14719 9.14072,-11.82739 12.60971,-20.00822 3.48467,-8.17907 5.20318,-17.44489 5.20318,-27.75679 0,-13.4527 -2.54714,-24.46065 -7.54735,-33.31348 -0.59369,-1.02243 -1.21757,-1.80338 -1.87511,-3.02225 l 56.90745,-46.672136 v 17.118526 c -7.39373,0.92969 -6.62422,5.34582 -6.62422,10.6352 v 128.66719 c 0,5.95832 4.8751,10.83382 10.83386,10.83382 h 3.98869 c 5.95835,0 10.83386,-4.87506 10.83386,-10.83382 V 117.29282 c 0,-5.27669 0.77741,-9.68801 -6.56167,-10.63039 z M 236.39865,329.14114 c 1.14099,0.7503 3.7039,2.78075 7.7184,6.03838 4.0495,3.24319 6.797,5.69582 8.26567,7.41432 1.43851,1.66381 3.5792,4.16501 6.37617,7.54734 2.81268,3.3744 4.7184,6.30394 5.71853,8.73425 1.00016,2.4767 2.01603,5.46089 3.04636,8.94556 0.98567,3.44488 1.48486,6.97595 1.48486,10.56169 0,17.04813 -6.56338,29.68007 -19.65604,37.85915 -13.125,8.18083 -28.76651,12.27368 -46.93767,12.27368 -9.18709,0 -18.2031,-1.09289 -27.06247,-3.1951 -8.84322,-2.11665 -17.31192,-5.3362 -25.39035,-9.60185 -8.07846,-4.25771 -14.57754,-10.20337 -19.50072,-17.79659 -4.93764,-7.64012 -7.40645,-16.41464 -7.40645,-26.24962 0,-10.32022 2.79692,-19.28987 8.42233,-26.90588 5.59343,-7.62564 12.93774,-13.3919 22.03208,-17.3154 9.0624,-3.94582 18.24946,-6.74232 27.56166,-8.39827 9.31221,-1.7023 18.79679,-2.555 28.43842,-2.555 4.46862,0 7.93582,0.25115 10.40465,0.69607 0.45456,0.21918 3.03188,2.07025 7.73456,5.56326 4.70401,3.46237 7.62565,5.59519 8.75047,6.38401 z m -3.35823,-100.5779 c -7.40648,8.85938 -17.73454,13.2882 -30.95363,13.2882 -11.85933,0 -22.29766,-4.76482 -31.26554,-14.31195 -8.99984,-9.52309 -15.42235,-20.32803 -19.34408,-32.43061 -3.93752,-12.10871 -5.90585,-23.98423 -5.90585,-35.648 0,-13.6942 3.59542,-25.35184 10.7809,-34.97598 7.18727,-9.64952 17.49915,-14.48477 30.93786,-14.48477 11.87507,0 22.37423,5.03825 31.43704,15.15677 9.09434,10.08482 15.60961,21.41303 19.5169,33.96799 3.92176,12.5392 5.87345,24.52979 5.87345,35.98399 0,13.44658 -3.70256,24.60984 -11.07663,33.45436 z"/></svg>
+          </a>
+          <a href="https://github.com/agiachris/" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 0 1 6.003 0c2.29-1.552 3.297-1.23 3.297-1.23.655 1.652.244 2.873.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.371.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+          <a href="http://www.linkedin.com/in/agiachris/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://x.com/agiachris" title="X" aria-label="X" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <button type="button" id="theme-toggle" class="theme-toggle" title="Theme: Auto" aria-label="Toggle color theme">
+          <span class="icon icon-auto" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20V2z" fill="currentColor"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <span class="icon icon-light" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+          <span class="icon icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        </button>
+      </div>
+      </div>
+    </header>
     <main id="main-content" class="site-main">
     <table class="tbl tbl--page">
       <tbody>
@@ -26,67 +62,34 @@
           <tr class="cell-pad-0">
 
             <td class="cell-profile-photo">
-              <a href="images/headshots/chrisagia_robotshot_crop.jpg"><img class="hoverZoomLink profile-photo-img" alt="Profile photo of Chris Agia" src="images/headshots/chrisagia_robotshot_crop.jpg"></a>
+              <div class="profile-photo-frame"><img class="profile-photo-img" alt="Profile photo of Chris Agia" src="images/headshots/chrisagia_robotshot.jpg"></div>
             </td>
 
             <td class="cell-profile-bio">
               <h1 class="profile-name text-center">Chris Agia</h1>
               <p>
-                <strong>I am a final year PhD candidate in Computer Science</strong> at Stanford University advised by <a href="https://web.stanford.edu/~bohg/"><strong>Jeannette Bohg</strong></a>
-                and <a href="https://web.stanford.edu/~pavone/"><strong>Marco Pavone</strong></a>. I'm a member of the 
-                <a href="https://ai.stanford.edu/">Stanford Artificial Intelligence Laboratory</a>, the <a href="https://crfm.stanford.edu/">Center for Research on Foundation Models</a>,
-                and work jointly with the <a href="http://iprl.stanford.edu/">Interactive Perception and Robot Learning Lab</a> and the <a href="https://stanfordasl.github.io/">Autonomous Systems Lab</a>.
+                <strong>I am a final year CS PhD candidate at Stanford University</strong> in the <a href="https://ai.stanford.edu/">Stanford AI Lab (SAIL)</a>, where I'm advised by <a href="https://web.stanford.edu/~bohg/"><strong>Jeannette Bohg</strong></a>
+                and <a href="https://web.stanford.edu/~pavone/"><strong>Marco Pavone</strong></a>. My research spans several topics in AI, with a particular focus on systems that operate in the physical world (robots):</p>
+                <ol> 
+                  <li>Increasing the reliability of AI-driven systems during deployment;</li> 
+                  <li>Establishing connections between model behavior and training data;</li> 
+                  <li>Expanding full-stack capabilities through planning and reasoning;</li>
+                  <li>Facilitating effective interaction between systems and humans.</li>
+                </ol>
               </p>
-              <p>My research is structured around the following core thrusts, with a particular focus on systems that operate in the physical world (robots):</p>
-              <ol> 
-                <!-- <li>Increasing the reliability of AI-driven robot during deployment;</li> 
-                <li>Establishing connections between model behavior and data;</li> 
-                <li>Endowing robots with the ability to plan for a wide range of tasks;</li> 
-                <li>Facilitating effective interaction between robots and humans.</li> -->
-                <li>Increasing the reliability of AI-driven systems during deployment;</li> 
-                <li>Establishing connections between model behavior and data;</li> 
-                <li>Expanding full-stack capabilities through planning and reasoning;</li>
-                <li>Facilitating effective interaction between systems and humans.</li>
-              </ol>
-              <!-- <p>
-                <strong>My research investigates how robots can feasibly and efficiently plan for any task through learning.</strong>
-                This requires accurate reasoning over the effects of robot actions into the future, at both a physical and abstract level, just as we do. 
-                I'm interested in defining <em>the right substrates</em> for geometric-symbolic reasoning, 
-                designing tools to construct them from perception and language, and learning to enact plans downstream.
-              </p> -->
-              <!-- <p>
-                <strong>I set aside weekly time for research discussion and mentorship.</strong> If you feel this could be of 
-                benefit, please book an open slot <a href="https://calendly.com/agiachris/virtual-research-chat">here</a>.
-              </p> -->
+
+              <p>
+                Previously, I received a BASc from the <a href="https://discover.engineering.utoronto.ca/programs/engineering-programs/engineering-science/">University of Toronto (EngSci)</a> and was advised by <a href="http://www.cs.toronto.edu/~florian/">Florian Shkurti</a>.
+                I've also had the pleasure of interning at Meta FAIR, NASA JPL, Microsoft</a>, and Google in past summers.
+              </p>
+              
               <p>
                 Beyond research, I enjoy sports (<a href="https://stanfordclubsports.com/sports/mens-soccer">Stanford Club Men's Soccer</a>) and music!
               </p>
 
-              <button type="button" class="collapsible">..more</button>
-              <div class="content">
-                <p>
-                  I've had the pleasure of working with <a href="https://jiajunwu.com/">Jiajun Wu</a> in my first-year at Stanford.
-                  Before that, I graduated from the 
-                  <a href="https://orientation.engsci.utoronto.ca/2020/07/08/engsci-majors-robotics-engineering/">Engineering Science, Robotics</a> 
-                  program at the University of Toronto, where I was advised by <a href="http://www.cs.toronto.edu/~florian/">Florian Shkurti</a> 
-                  at <a href="https://rvl.cs.toronto.edu/">RVL</a> and the <a href="https://vectorinstitute.ai/">Vector Institute</a>. 
-                  I've been fortunate to collaborate with <a href="https://liampaull.ca/">Liam Paull</a> at 
-                  <a href="https://montrealrobotics.ca/">MILA</a>, <a href="https://www.cim.mcgill.ca/~dmeger/">David Meger</a> 
-                  and <a href="http://www.cim.mcgill.ca/~dudek/">Gregory Dudek</a> at <a href="https://www.cim.mcgill.ca/~mrl/">McGill</a>, 
-                  <a href="https://www.mie.utoronto.ca/faculty_staff/nejat/">Goldie Nejat</a> at the 
-                  <a href="http://asblab.mie.utoronto.ca/">University of Toronto</a>, and colleagues from 
-                  <a href="https://www.microsoft.com/en-us/research/group/reinforcement-learning-redmond/">Microsoft Research</a> and 
-                  <a href="https://ai.facebook.com/">Meta AI Research</a>. 
-                  In industry, I had the opportunity to work on multi-agent reinforcement learning in mixed reality environments at 
-                  <a href="https://www.microsoft.com/en-us/research/project/robotics-and-mixed-reality/">Microsoft</a>, perception 
-                  and localization for self-driving vehicles at <a href="http://www.noahlab.com.hk/#/home">Huawei Noah's Ark Lab</a> with
-                  <a href="https://scholar.google.ca/citations?user=-rCulKwAAAAJ&hl=en">Bingbing Liu</a>, and 
-                  language-agnostic ABI simulators at <a href="https://about.google/">Google</a> Cloud.
-                </p>
-              </div>
-
               <p class="text-center">
                 cagia[at]cs.stanford.edu &nbsp/&nbsp
+                <!-- <button type="button" class="link-button" id="bio-trigger" aria-haspopup="dialog" aria-controls="bio-modal">Bio</button> &nbsp/&nbsp -->
                 <a href="data/Agia-CV-2026.pdf">CV</a> &nbsp/&nbsp
                 <a href="http://www.linkedin.com/in/agiachris/"> LinkedIn</a> &nbsp/&nbsp
                 <a href="https://x.com/agiachris"> X</a> &nbsp/&nbsp
@@ -98,50 +101,77 @@
           </tr>
           </tbody>
         </table>
-        <p></p>
 
-        <!-- Updates Section -->
-        <table class="tbl tbl--page-spaced" aria-labelledby="updates-heading">
+        <div class="modal-overlay" id="bio-modal" aria-hidden="true">
+          <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bio-modal-heading">
+            <button type="button" class="modal-close" id="bio-close" aria-label="Close bio">&times;</button>
+            <h2 id="bio-modal-heading">Bio</h2>
+            <p>
+              I've had the pleasure of working with <a href="https://jiajunwu.com/">Jiajun Wu</a> in my first-year at Stanford.
+              Before that, I graduated from the
+              <a href="https://orientation.engsci.utoronto.ca/2020/07/08/engsci-majors-robotics-engineering/">Engineering Science, Robotics</a>
+              program at the University of Toronto, where I was advised by <a href="http://www.cs.toronto.edu/~florian/">Florian Shkurti</a>
+              at <a href="https://rvl.cs.toronto.edu/">RVL</a> and the <a href="https://vectorinstitute.ai/">Vector Institute</a>.
+              I've been fortunate to collaborate with <a href="https://liampaull.ca/">Liam Paull</a> at
+              <a href="https://montrealrobotics.ca/">MILA</a>, <a href="https://www.cim.mcgill.ca/~dmeger/">David Meger</a>
+              and <a href="http://www.cim.mcgill.ca/~dudek/">Gregory Dudek</a> at <a href="https://www.cim.mcgill.ca/~mrl/">McGill</a>,
+              <a href="https://www.mie.utoronto.ca/faculty_staff/nejat/">Goldie Nejat</a> at the
+              <a href="http://asblab.mie.utoronto.ca/">University of Toronto</a>, and colleagues from
+              <a href="https://www.microsoft.com/en-us/research/group/reinforcement-learning-redmond/">Microsoft Research</a> and
+              <a href="https://ai.facebook.com/">Meta AI Research</a>.
+              In industry, I had the opportunity to work on multi-agent reinforcement learning in mixed reality environments at
+              <a href="https://www.microsoft.com/en-us/research/project/robotics-and-mixed-reality/">Microsoft</a>, perception
+              and localization for self-driving vehicles at <a href="http://www.noahlab.com.hk/#/home">Huawei Noah's Ark Lab</a> with
+              <a href="https://scholar.google.ca/citations?user=-rCulKwAAAAJ&hl=en">Bingbing Liu</a>, and
+              language-agnostic ABI simulators at <a href="https://about.google/">Google</a> Cloud.
+            </p>
+          </div>
+        </div>
+
+        <!-- News Section -->
+        <table class="tbl tbl--page-spaced" aria-labelledby="news-heading">
           <tbody>
             <tr>
               <td class="cell-pad-0">
-                
+
                 <table class="tbl">
                   <tbody>
                     <tr class="cell-pad-0">
-                      <td class="section-label--updates">
-                        <h2 class="section-heading section-heading--updates" id="updates-heading">..Updates</h2>
+                      <td class="section-label">
+                        <h2 class="section-heading" id="news-heading">News</h2>
                       </td>
                     </tr>
                   </tbody>
                 </table>
-                
-                <table class="tbl tbl--surface">
+
+                <table class="tbl">
                   <tbody>
                     <tr>
-                      <td class="cell-full-surface">
+                      <td class="cell-lede">
+                        <div class="updates-card">
                         <div class="updates-scroll">
-                          <ul class="updates-list">
-                            <li><strong><em>[Mar 2026]</em></strong> —- I defended my PhD on deployment-time reliability of learned robot policies; <a href="https://www.youtube.com/watch?v=LEszowSmOEc">talk</a> and <a href="https://arxiv.org/abs/2603.11400">dissertation</a> available online!
-                            <li><strong><em>[Jan 2026]</em></strong> —- Our work on <a href="https://arxiv.org/abs/2509.23281">preventing robotic jailbreaks</a> in safety-critical scenarios was accepted to ICRA 2026!</li>
-                            <li><strong><em>[Aug 2025]</em></strong> —- Hosting a full-day workshop on <a href="https://sites.google.com/stanford.edu/corldata25/home">Making Sense of Data in Robotics</a> at CoRL 2025 — join the conversation!</li>
-                            <li><strong><em>[Aug 2025]</em></strong> -- Our three recent research projects – <a href="https://cupid-curation.github.io/">CUPID</a>, <a href="https://robomonkey-vla.github.io/">RoboMonkey</a> , and <a href="https://milanganai.github.io/fortress/">FORTRESS</a> – were accepted to CoRL 2025!</li>
-                            <li><strong><em>[Jun 2025]</em></strong> -- Our work on robot data curation with influence functions (<a href="https://cupid-curation.github.io/">CUPID</a>) received a best paper award at RSS <a href="https://sites.google.com/stanford.edu/robot-evaluation-rss-2025/home">RoboEval</a>!</li>
-                            <li><strong><em>[Jun 2025]</em></strong> -- Three new papers out! <a href="https://cupid-curation.github.io/">CUPID</a> (data curation), <a href="https://robomonkey-vla.github.io/">RoboMonkey</a>  (test-time scaling), and <a href="https://milanganai.github.io/fortress/">FORTRESS</a> (OOD safety)!</li>
-                            <li><strong><em>[Jan 2025]</em></strong> -- Offer accepted! I will be joining <a href="https://ai.meta.com/research/">Meta Fundamental AI Research (FAIR)</a> as a Research Scientist Intern this summer!</li>
-                            <li><strong><em>[Nov 2024]</em></strong> -- I'm on the Summer 2025 research internship market; please reach out if my research is of interest to your group!</li>
-                            <li><strong><em>[Nov 2024]</em></strong> -- Our lab (<a href="https://iprl.stanford.edu/">IPRL</a>) made the <a href="https://engineering.stanford.edu/news/meet-few-roboticists-designing-tomorrows-technology-new-robotics-center?utm_source=mailchimp&utm_medium=email&utm_campaign=issue28rec&utm_content=meet-a-few-of-the-roboticists">front page</a> of the Stanford School of Engineering news for the Stanford Robotics Center!</li>
-                            <li><strong><em>[Sep 2024]</em></strong> -- I've been featured on the <a href="https://stanforddaily.com/2024/09/26/stanford-center-autonomous-space-ventures/">Stanford Daily News</a> for my perspectives on foundation models for space applications!</li>
-                            <li><strong><em>[Sep 2024]</em></strong> -- Our work on <a href="https://sites.google.com/stanford.edu/sentinel">detecting policy failures</a> was accepted to CoRL 2024 (oral presentation at the <a href="https://sites.google.com/view/corl-2024-safe-rol-workshop/home">SAFE-ROL</a> workshop)!</li>
-                            <li><strong><em>[Sep 2024]</em></strong> -- Our work on <a href="https://sites.google.com/view/text2interaction">human-robot interactive planning</a> with large language models was accepted to CoRL 2024!</li>
-                            <li><strong><em>[Jul 2024]</em></strong> -- Our paper on <a href="https://sites.google.com/view/aesop-llm">real-time anomaly detection</a> with language models received the outstanding paper award at RSS!</li>
-                            <li><strong><em>[May 2024]</em></strong> -- Two of our papers have been accepted to RSS 2024: Check out <a href="https://sites.google.com/view/aesop-llm">AESOP</a> and <a href="https://droid-dataset.github.io/">DROID</a>!</li>
-                            <li><strong><em>[Jan 2024]</em></strong> -- My internship research on <a href="https://sites.google.com/stanford.edu/spacecraft-models">autonomous space exploration</a> has been accepted to IEEE AeroConf 2024!</li>
-                            <li><strong><em>[Jan 2024]</em></strong> -- Our paper on <a href="https://robotics-transformer-x.github.io/">Open X-Embodiment</a> learning has been accepted to ICRA 2024 with a best paper award nomination!</li>
-                            <li><strong><em>[Jul 2023]</em></strong> -- We have two <a href="https://sites.google.com/stanford.edu/text2motion">journal</a> <a href="https://sites.google.com/view/llm-anomaly-detection/home">papers</a> accepted to <a href="https://link.springer.com/collections/bejhchcbag">Autonomous Robots, Special Issue: Large Language Models in Robotics</a>!</li>
-                            <li><strong><em>[Jun 2023]</em></strong> -- I'm excited to join the <a href="https://www.jpl.nasa.gov/">NASA Jet Propulsion Laboratory</a> for a robotics research internship this summer!</li>
-                            <li><strong><em>[Jan 2023]</em></strong> -- Our work on <a href="https://sites.google.com/stanford.edu/stap/home">sequencing policies</a> for long-horizon manipulation has been accepted to ICRA 2023!</li>
-                          </ul>
+                          <div class="news-list">
+                            <div class="news-item"><span class="news-date">Mar 2026</span><span class="news-text">I defended my PhD on deployment-time reliability of learned robot policies; <a href="https://www.youtube.com/watch?v=LEszowSmOEc">talk</a> and <a href="https://arxiv.org/abs/2603.11400">dissertation</a> available online!</span></div>
+                            <div class="news-item"><span class="news-date">Jan 2026</span><span class="news-text">Our work on <a href="https://arxiv.org/abs/2509.23281">preventing robotic jailbreaks</a> in safety-critical scenarios was accepted to ICRA 2026!</span></div>
+                            <div class="news-item"><span class="news-date">Aug 2025</span><span class="news-text">Hosting a full-day workshop on <a href="https://sites.google.com/stanford.edu/corldata25/home">Making Sense of Data in Robotics</a> at CoRL 2025 — join the conversation!</span></div>
+                            <div class="news-item"><span class="news-date">Aug 2025</span><span class="news-text">Our three recent research projects – <a href="https://cupid-curation.github.io/">CUPID</a>, <a href="https://robomonkey-vla.github.io/">RoboMonkey</a>, and <a href="https://milanganai.github.io/fortress/">FORTRESS</a> – were accepted to CoRL 2025!</span></div>
+                            <div class="news-item"><span class="news-date">Jun 2025</span><span class="news-text">Our work on robot data curation with influence functions (<a href="https://cupid-curation.github.io/">CUPID</a>) received a best paper award at RSS <a href="https://sites.google.com/stanford.edu/robot-evaluation-rss-2025/home">RoboEval</a>!</span></div>
+                            <div class="news-item"><span class="news-date">Jun 2025</span><span class="news-text">Three new papers out! <a href="https://cupid-curation.github.io/">CUPID</a> (data curation), <a href="https://robomonkey-vla.github.io/">RoboMonkey</a> (test-time scaling), and <a href="https://milanganai.github.io/fortress/">FORTRESS</a> (OOD safety)!</span></div>
+                            <div class="news-item"><span class="news-date">Jan 2025</span><span class="news-text">Offer accepted! I will be joining <a href="https://ai.meta.com/research/">Meta Fundamental AI Research (FAIR)</a> as a Research Scientist Intern this summer!</span></div>
+                            <div class="news-item"><span class="news-date">Nov 2024</span><span class="news-text">I'm on the Summer 2025 research internship market; please reach out if my research is of interest to your group!</span></div>
+                            <div class="news-item"><span class="news-date">Nov 2024</span><span class="news-text">Our lab (<a href="https://iprl.stanford.edu/">IPRL</a>) made the <a href="https://engineering.stanford.edu/news/meet-few-roboticists-designing-tomorrows-technology-new-robotics-center?utm_source=mailchimp&utm_medium=email&utm_campaign=issue28rec&utm_content=meet-a-few-of-the-roboticists">front page</a> of the Stanford School of Engineering news for the Stanford Robotics Center!</span></div>
+                            <div class="news-item"><span class="news-date">Sep 2024</span><span class="news-text">I've been featured on the <a href="https://stanforddaily.com/2024/09/26/stanford-center-autonomous-space-ventures/">Stanford Daily News</a> for my perspectives on foundation models for space applications!</span></div>
+                            <div class="news-item"><span class="news-date">Sep 2024</span><span class="news-text">Our work on <a href="https://sites.google.com/stanford.edu/sentinel">detecting policy failures</a> was accepted to CoRL 2024 (oral presentation at the <a href="https://sites.google.com/view/corl-2024-safe-rol-workshop/home">SAFE-ROL</a> workshop)!</span></div>
+                            <div class="news-item"><span class="news-date">Sep 2024</span><span class="news-text">Our work on <a href="https://sites.google.com/view/text2interaction">human-robot interactive planning</a> with large language models was accepted to CoRL 2024!</span></div>
+                            <div class="news-item"><span class="news-date">Jul 2024</span><span class="news-text">Our paper on <a href="https://sites.google.com/view/aesop-llm">real-time anomaly detection</a> with language models received the outstanding paper award at RSS!</span></div>
+                            <div class="news-item"><span class="news-date">May 2024</span><span class="news-text">Two of our papers have been accepted to RSS 2024: Check out <a href="https://sites.google.com/view/aesop-llm">AESOP</a> and <a href="https://droid-dataset.github.io/">DROID</a>!</span></div>
+                            <div class="news-item"><span class="news-date">Jan 2024</span><span class="news-text">My internship research on <a href="https://sites.google.com/stanford.edu/spacecraft-models">autonomous space exploration</a> has been accepted to IEEE AeroConf 2024!</span></div>
+                            <div class="news-item"><span class="news-date">Jan 2024</span><span class="news-text">Our paper on <a href="https://robotics-transformer-x.github.io/">Open X-Embodiment</a> learning has been accepted to ICRA 2024 with a best paper award nomination!</span></div>
+                            <div class="news-item"><span class="news-date">Jul 2023</span><span class="news-text">We have two <a href="https://sites.google.com/stanford.edu/text2motion">journal</a> <a href="https://sites.google.com/view/llm-anomaly-detection/home">papers</a> accepted to <a href="https://link.springer.com/collections/bejhchcbag">Autonomous Robots, Special Issue: Large Language Models in Robotics</a>!</span></div>
+                            <div class="news-item"><span class="news-date">Jun 2023</span><span class="news-text">I'm excited to join the <a href="https://www.jpl.nasa.gov/">NASA Jet Propulsion Laboratory</a> for a robotics research internship this summer!</span></div>
+                            <div class="news-item"><span class="news-date">Jan 2023</span><span class="news-text">Our work on <a href="https://sites.google.com/stanford.edu/stap/home">sequencing policies</a> for long-horizon manipulation has been accepted to ICRA 2023!</span></div>
+                          </div>
+                        </div>
                         </div>
                       </td>
                     </tr>
@@ -153,115 +183,49 @@
           </tbody>
         </table>
 
-
-        <!-- Education -->
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr>
-            <!-- <td style="text-align: right; background-color: #eee"> -->
-            <td class="section-label">
-              <h2 class="section-heading section-heading--mono" id="education-heading">..Education</h2>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <!-- <table class="tbl"><tbody>   -->
-        <table class="tbl tbl--surface">
-          <tbody>
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/school/Stanford-Crest-Square.png" alt="clean-usnob" width="140" height="140">
-            </td>
-            <td width="75%" valign="middle">
-              <span class="paper-title">Ph.D in Computer Science</span><br>
-              Department of Computer Science, Stanford University<br>
-              Sep 2021 - Mar 2026 | Stanford, CA<br>
-              <em>Deployment-Time Reliability of Learned Robot Policies | <a href="https://arxiv.org/abs/2603.11400">Dissertation</a> | <a href="https://www.youtube.com/watch?v=LEszowSmOEc">Defense</a></em><br>
-              <p></p>
-              <em><strong>School of Engineering Fellowship</strong></em><br>
-              <em><strong>2 x TA for Principles of Robot Autonomy 1</strong> (<a href="https://stanfordasl.github.io/PoRA-I/aa174a_aut2324/">2023</a>, <a href="https://stanfordasl.github.io/PoRA-I/aa174a_aut2425/">2024</a>)</em><br>
-              <em><strong>1 x TA for Principles of Robot Autonomy 2</strong> (<a href="https://web.stanford.edu/class/cs237b/">2025</a>)</em><br>
-              <em><strong>1 x TA for Test of AI & Emerging Technologies</strong> (<a href="https://aiet4test.cgoe.stanford.edu/">2026</a>); in service of the US Air Force (<a href="https://news.stanford.edu/stories/2025/02/stanford-engineers-help-prepare-air-force-test-pilots-advances-autonomous-technologies">news</a>)</em><br> 
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <!-- <table class="tbl"><tbody>   -->
-        <table class="tbl tbl--surface">
-          <tbody>
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/school/UofT-Crest-Square.png" alt="clean-usnob" width="140" height="140">
-            </td>
-            <td width="75%" valign="middle">
-              <span class="paper-title">B.A.Sc in Engineering Science, Robotics</span><br>
-              Faculty of Applied Science and Engineering, University of Toronto<br>
-              Sep 2016 - May 2021 | Toronto, ON<br>
-              <em>Contextual Graph Representations for Task-Driven 3D Perception and Planning | <a href="https://arxiv.org/abs/2603.26685">Thesis</a></em><br>
-              <p></p> 
-              <em><strong>President's Scholarship Program</strong></em><br>
-              <em><strong>NSERC Undergraduate Research Award</strong></em><br>
-              <em><strong>Dean's Honour List - 2018-2021</strong></em>
-            </td>
-          </tr>
-        </tbody></table>
-        <p></p>
-
         <!-- Research -->
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
+        <table class="tbl tbl--section-gap"><tbody>
           <tr>
             <td class="section-label">
-              <h2 class="section-heading section-heading--mono" id="research-heading">..Research</h2>
+              <div class="section-heading-row">
+                <h2 class="section-heading" id="research-heading">Research</h2>
+                <div class="filter-nav" role="group" aria-label="Research filter">
+                  <button type="button" id="research-filter-selected" class="filter-option" aria-pressed="false">show selected</button>
+                  <span class="filter-separator">/</span>
+                  <button type="button" id="research-filter-all" class="filter-option is-active" aria-pressed="true">show all</button>
+                </div>
+              </div>
             </td>
           </tr>
         </tbody></table>
 
         <table class="tbl tbl--surface"><tbody>
           <tr>
-            <td class="cell-full">
+            <td class="cell-lede">
+              <p class="research-lede">              
+                I'm broadly interested in building AI systems that reliably solve complex tasks in the physical world. 
+                My research spans learning for planning and decision making, safety and reliability, and data curation and model interpretability (see my dissertation <a href="https://arxiv.org/abs/2603.11400">here</a> and defense talk <a href="https://www.youtube.com/watch?v=LEszowSmOEc">here</a>). 
+                I view these as facets of one system-level problem: toward agents that flexibly reason about and generalize to new tasks, whose behavior can be understood, safeguarded, and improved over time.
+              </p>
               <p class="research-lede">
-                Papers and preprints are ordered by recency. Representative works are <span class="representative">highlighted in green</span>.
+                Papers and preprints are ordered by recency. Representative works are <span class="representative">highlighted in green</span>. Please see my <a href="https://scholar.google.com/citations?user=t8Em5FwAAAAJ&hl=en">Google Scholar</a> page for a complete and up-to-date list of papers.
               </p>
             </td>
           </tr>
         </tbody></table>
 
-        <!-- <table class="tbl tbl--surface"><tbody>
-            <tr>
-            <td class="cell-full">
-              <h2 class="section-heading">Preprints</h2>
-            </td>
-          </tr>
-        </tbody></table> -->
-
-        <!-- <table class="tbl tbl--surface"><tbody>
-            <tr>
-            <td class="cell-full">
-              <h2 class="section-heading">Journal Papers</h2>
-            </td>
-          </tr>
-        </tbody></table> -->
-
-        <!-- <table class="tbl tbl--surface"><tbody>
-            <tr>
-            <td class="cell-full">
-              <h2 class="section-heading">Conference Papers</h2>
-            </td>
-          </tr>
-        </tbody></table> -->
+        <div id="research-list">
         <table class="tbl tbl--pad-top"><tbody>
           <tr>
             <td class="cell-thumb">
               <img src="images/research/faktual.png" alt="clean-usnob" width="140" height="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Diversity You Can Actually Measure: A Fast, Model-Free Diversity Metric for Robotics Datasets</span>
+              <a href="https://arxiv.org/abs/2603.11634"><span class="paper-title">Diversity You Can Actually Measure: A Fast, Model-Free Diversity Metric for Robotics Datasets</span></a>
               <br>
               <a href="https://scholar.google.com/citations?user=W8pt4iMAAAAJ&hl=en">Sreevardhan Sirigiri</a>, <a href="https://scholar.google.com/citations?user=-OvkuacAAAAJ&hl=en">Nathan Samuel de Lara</a>, <strong>Christopher Agia</strong>, <a href="http://www.cs.toronto.edu/~florian/">Florian Shkurti</a>, <a href="https://fabioramos.github.io/Home.html">Fabio Ramos</a>
               <br>
-              <em>Preprint</em>
+              <span class="conference-badge badge-preprint">Preprint</span>
               <br>
               <a href="https://arxiv.org/abs/2603.11634">arXiv</a>
               <br>
@@ -280,11 +244,11 @@
               <video width="140" src="images/research/jdapt.mp4" type="video/mp4" muted autoplay loop></video>
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Preventing Robotic Jailbreaks via Multimodal Domain Adaptation</span>
+              <a href="https://j-dapt.github.io"><span class="paper-title">Preventing Robotic Jailbreaks via Multimodal Domain Adaptation</span></a>
               <br>
               <a href="https://www.math.unipd.it/~fmarchio/">Francesco Marchiori</a>, <a href="https://rohansinha.nl/">Rohan Sinha</a>, <strong>Christopher Agia</strong>, <a href="https://arobey1.github.io/">Alexander Robey</a>, <a href="https://www.georgejpappas.org/">George Pappas</a>, <a href="https://www.math.unipd.it/~conti/">Mauro Conti</a>, <a href="https://web.stanford.edu/~pavone/">Marco Pavone</a>
               <br>
-              <em>IEEE International Conference on Robotics and Automation (ICRA)</em>, 2026 | Vienna, AI
+              <span class="conference-badge badge-icra">ICRA 2026</span>
               <br>
               <a href="https://arxiv.org/abs/2509.23281">arXiv</a> / <a href="https://j-dapt.github.io">Project Site</a> / <a href="https://github.com/Mhackiori/J-DAPT">Code</a>
               <br>
@@ -296,21 +260,21 @@
           </tr>
         </tbody></table>
 
-        <table class="representative tbl tbl--pad-top"><tbody>
+        <table class="representative is-selected tbl tbl--pad-top"><tbody>
           <tr>
             <td class="cell-thumb">
               <video width="140" src="images/research/cupid.mp4" type="video/mp4" muted autoplay loop></video>
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">CUPID: Curating Data your Robot Loves with Influence Functions</span>
+              <a href="https://cupid-curation.github.io/"><span class="paper-title">CUPID: Curating Data your Robot Loves with Influence Functions</span></a>
               <br>
               <strong>Christopher Agia</strong>, <a href="https://rohansinha.nl/">Rohan Sinha</a>, <a href="https://yjy0625.github.io/">Jingyun Yang</a>, <a href="https://contactrika.github.io/">Rika Antonova</a>, <a href="https://web.stanford.edu/~pavone/">Marco Pavone</a>, <a href="https://harukins.github.io/">Haruki Nishimura</a>, <a href="https://mashaitkina.weebly.com/">Masha Itkina</a>, <a href="https://web.stanford.edu/~bohg/">Jeannette Bohg</a>
               <br>
-              <em>Conference on Robot Learning (CoRL)</em>, 2025 | Seoul, South Korea
+              <span class="conference-badge badge-corl">CoRL 2025</span>
               <br>
               <a href="https://arxiv.org/abs/2506.19121">arXiv</a> / <a href="https://cupid-curation.github.io/">Project Site</a> / <a href="https://www.youtube.com/watch?v=0kmIiEjTqV8">YouTube</a> / <a href="https://github.com/agiachris/cupid">Code</a> / <a href="https://x.com/agiachris/status/1937670321458606310">X</a>
               <br>
-              <span class="text-sm">RSS 2025 Workshop on Robot Evaluation for the Real World (<span class="text-award">Best Paper</span>)</span>
+              <span class="venue-note">RSS 2025 Workshop on Robot Evaluation for the Real World <span class="award-star">★ Best Paper ★</span></span>
               <p>
                 In robot imitation learning, policy performance is tightly coupled with the quality and composition of the demonstration data. 
                 We present CUPID, a data curation method that uses influence functions to estimate the causal impact of each demonstration on a policy's closed-loop performance. 
@@ -325,11 +289,11 @@
               <video width="140" src="images/research/robomonkey.mp4" type="video/mp4" muted autoplay loop></video>
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">RoboMonkey: Scaling Test-Time Sampling and Verification for Vision-Language-Action Models</span>
+              <a href="https://robomonkey-vla.github.io/"><span class="paper-title">RoboMonkey: Scaling Test-Time Sampling and Verification for Vision-Language-Action Models</span></a>
               <br>
               <a href="https://www.linkedin.com/in/jackykwok02/">Jacky Kwok</a>, <strong>Christopher Agia</strong>, <a href="https://rohansinha.nl/">Rohan Sinha</a>, <a href="https://www.linkedin.com/in/matthew-foutter-7b1366192/">Matt Foutter</a>, <a href="https://shilun-allan-li.github.io/">Shulu Li</a>, <a href="https://people.eecs.berkeley.edu/~istoica/">Ion Stoica</a>, <a href="http://azaliamirhoseini.com/">Azalia Mirhoseini</a>, <a href="https://web.stanford.edu/~pavone/">Marco Pavone</a>
               <br>
-              <em>Conference on Robot Learning (CoRL)</em>, 2025 | Seoul, South Korea
+              <span class="conference-badge badge-corl">CoRL 2025</span>
               <br>
               <a href="https://arxiv.org/abs/2506.17811">arXiv</a> / <a href="https://robomonkey-vla.github.io/">Project Site</a> / <a href="https://github.com/robomonkey-vla/RoboMonkey">Code</a>  / <a href="https://x.com/jackyk02/status/1943013062170284368">X</a>
               <p>
@@ -347,11 +311,11 @@
               <video width="140" src="images/research/fortress_anymal.mp4" type="video/mp4" muted autoplay loop></video>
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Real-Time Out-of-Distribution Failure Prevention via Multi-Modal Reasoning</span>
+              <a href="https://milanganai.github.io/fortress/"><span class="paper-title">Real-Time Out-of-Distribution Failure Prevention via Multi-Modal Reasoning</span></a>
               <br>
               <a href="https://milanganai.github.io/">Milan Ganai</a>, <a href="https://rohansinha.nl/">Rohan Sinha</a>, <strong>Christopher Agia</strong>, <a href="https://danielpmorton.github.io/">Daniel Morton</a>, <a href="https://web.stanford.edu/~pavone/">Marco Pavone</a>
               <br>
-              <em>Conference on Robot Learning (CoRL)</em>, 2025 (<span class="text-award">Oral Presentation</span>) | Seoul, South Korea
+              <span class="conference-badge badge-corl">CoRL 2025</span> <span class="award-star">★ Oral Presentation ★</span>
               <br>
               <a href="https://arxiv.org/abs/2505.10547">arXiv</a> / <a href="https://milanganai.github.io/fortress/">Project Site</a>
               <p>
@@ -369,15 +333,15 @@
               <video width="140" src="images/research/p2p_shelf.mp4" type="video/mp4" muted autoplay loop></video>
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Points2Plans: From Point Clouds to Long-Horizon Plans with Composable Relational Dynamics</span>
+              <a href="https://sites.google.com/stanford.edu/points2plans"><span class="paper-title">Points2Plans: From Point Clouds to Long-Horizon Plans with Composable Relational Dynamics</span></a>
               <br>
               <a href="https://yixuanhuang98.github.io/">Yixuan Huang</a>, <strong>Christopher Agia</strong>, <a href="https://jimmyyhwu.github.io/">Jimmy Wu</a>, <a href="https://robot-learning.cs.utah.edu/thermans">Tucker Hermans</a>, <a href="https://web.stanford.edu/~bohg/">Jeannette Bohg</a>
               <br>
-              <em>IEEE International Conference on Robotics and Automation (ICRA)</em>, 2025 | Atlanta, US
+              <span class="conference-badge badge-icra">ICRA 2025</span>
               <br>
               <a href="https://arxiv.org/abs/2408.14769">arXiv</a> / <a href="https://sites.google.com/stanford.edu/points2plans">Project Site</a> / <a href="https://github.com/yixuanhuang98/Points2Plans">Code</a>
               <br>
-              <span class="text-sm">CoRL 2024 Workshop on Learning Effective Abstractions for Planning (<span class="text-award">Oral Presentation</span>)</span>
+              <span class="venue-note">CoRL 2024 Workshop on Learning Effective Abstractions for Planning <span class="award-star">★ Oral Presentation ★</span></span>
               <p>
                 How can we plan to solve unseen, long-horizon tasks from a single, partial-view point cloud of the scene, and can we do so without access 
                 to long-horizon training data? Points2Plans leverages transformer-based relational dynamics to learn the symbolic and geometric effects of 
@@ -387,23 +351,23 @@
           </tr>
         </tbody></table>
 
-        <table class="representative tbl tbl--pad-top"><tbody>
+        <table class="representative is-selected tbl tbl--pad-top"><tbody>
           <tr>
             <td class="cell-thumb">
               <img src="images/research/sentinel_pushchair_ood.gif" alt="clean-usnob" width="140" height="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Unpacking Failure Modes of Generative Policies: Runtime Monitoring of Consistency and Progress</span>
+              <a href="https://sites.google.com/stanford.edu/sentinel"><span class="paper-title">Unpacking Failure Modes of Generative Policies: Runtime Monitoring of Consistency and Progress</span></a>
               <br>
               <strong>Christopher Agia</strong>, <a href="https://rohansinha.nl/">Rohan Sinha</a>, <a href="https://yjy0625.github.io/">Jingyun Yang</a>, <a href="https://www.linkedin.com/in/zi-ang-cao-7b677a317/">Zi-ang Cao</a>, <a href="https://contactrika.github.io/">Rika Antonova</a>, <a href="https://web.stanford.edu/~pavone/">Marco Pavone</a>, <a href="https://web.stanford.edu/~bohg/">Jeannette Bohg</a>
               <br>
-              <em>Conference on Robot Learning (CoRL)</em>, 2024 | Munich, DE
+              <span class="conference-badge badge-corl">CoRL 2024</span>
               <br>
               <a href="https://arxiv.org/abs/2410.04640">arXiv</a> / <a href="https://sites.google.com/stanford.edu/sentinel">Project Site</a> / <a href="https://youtu.be/rmufD7VMivc">YouTube</a> / <a href="https://github.com/agiachris/sentinel">Code</a> / <a href="https://x.com/agiachris/status/1844429583212478665">X</a>
               <br>
-              <span class="text-sm">CoRL 2024 Workshop on Safe and Robust Robot Learning (<span class="text-award">Oral Presentation</span>)</span>
+              <span class="venue-note">CoRL 2024 Workshop on Safe and Robust Robot Learning <span class="award-star">★ Oral Presentation ★</span></span>
               <br>
-              <span class="text-sm">RSS 2024 Workshop: Towards Safe Autonomy: Emerging Requirements, Definitions, and Methods</span>
+              <span class="venue-note">RSS 2024 Workshop: Towards Safe Autonomy: Emerging Requirements, Definitions, and Methods</span>
               <p>
                 Robot behavior policies trained via imitation learning are prone to failure under conditions that deviate from their training data.
                 In this work, we present Sentinel, a runtime monitor that detects unknown failures (requiring no data of failures) of generative robot policies at deployment time.
@@ -419,15 +383,15 @@
               <img src="images/research/t2i_handover_good.gif" alt="clean-usnob" width="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Text2Interaction: Establishing Safe and Preferable Human-Robot Interaction</span>
+              <a href="https://sites.google.com/view/text2interaction"><span class="paper-title">Text2Interaction: Establishing Safe and Preferable Human-Robot Interaction</span></a>
               <br>
               <a href="https://jakob-thumm.com/">Jakob Thumm</a>, <strong>Christopher Agia</strong>, <a href="https://web.stanford.edu/~pavone/">Marco Pavone</a>, <a href="https://scholar.google.de/citations?user=E3zazJAAAAAJ&hl=de">Matthias Althoff</a>
               <br>
-              <em>Conference on Robot Learning (CoRL)</em>, 2024 | Munich, DE
+              <span class="conference-badge badge-corl">CoRL 2024</span>
               <br>
               <a href="https://arxiv.org/abs/2408.06105">arXiv</a> / <a href="https://sites.google.com/view/text2interaction">Project Site</a> / <a href="https://www.youtube.com/watch?v=LNfVw9ZtAtI">YouTube</a> / <a href="https://github.com/JakobThumm/text2interaction">Code</a>
               <br>
-              <span class="text-sm">CoRL 2024 Workshop on Language and Robot Learning: Language as an Interface</span>
+              <span class="venue-note">CoRL 2024 Workshop on Language and Robot Learning: Language as an Interface</span>
               <p>
                 How can we integrate human preferences into robot plans in a zero-shot manner, i.e., without requiring tens of thousands of data points
                 of human feedback? We propose Text2Interaction, a planning framework that invokes large language models to generate a task plan, motion preferences as Python code, 
@@ -437,21 +401,21 @@
           </tr>
         </tbody></table>
         
-        <table class="representative tbl tbl--pad-top"><tbody> 
+        <table class="representative is-selected tbl tbl--pad-top"><tbody>
           <tr>
             <td class="cell-thumb">
               <video width="140" src="images/research/aesop_llm.mp4" type="video/mp4" muted autoplay loop></video>
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Real-Time Anomaly Detection and Reactive Planning with Large Language Models</span>
+              <a href="https://sites.google.com/view/aesop-llm"><span class="paper-title">Real-Time Anomaly Detection and Reactive Planning with Large Language Models</span></a>
               <br>
               <a href="https://stanfordasl.github.io//people/rohan-sinha/">Rohan Sinha</a>, <a href="https://stanfordasl.github.io//people/amine-elhafsi/">Amine Elhafsi</a>, <strong>Christopher Agia</strong>, <a href="https://www.linkedin.com/in/matthew-foutter-7b1366192/">Matt Foutter</a>, <a href="https://stanfordasl.github.io//people/edward-schmerling/">Edward Schmerling</a>, <a href="https://web.stanford.edu/~pavone/">Marco Pavone</a>
               <br>
-              <em>Robotics: Science and Systems (RSS)</em>, 2024 (<span class="text-award">Outstanding Paper</span>) | Delft, NL
+              <span class="conference-badge badge-rss">RSS 2024</span> <span class="award-star">★ Outstanding Paper ★</span>
               <br>
               <a href="https://arxiv.org/abs/2407.08735v1">arXiv</a> / <a href="https://sites.google.com/view/aesop-llm">Project Site</a> / <a href="https://www.youtube.com/watch?v=2_XzYYLG2iY&ab_channel=RohanSinha">YouTube</a> / <a href="https://www.youtube.com/watch?v=TSC_mVH5abI&list=PLZHnYvH1qtOYkElUMqYiHDMrGTPnqRhSr&index=2">NVIDIA Media / <a href="https://techxplore.com/news/2024-08-stage-framework-llm-based-anomaly.html">TechXplore</a>
               <br>
-              <span class="text-sm">CoRL 2024 Workshop on Language and Robot Learning: Language as an Interface</span>
+              <span class="venue-note">CoRL 2024 Workshop on Language and Robot Learning: Language as an Interface</span>
               <p>
                 How can we mitigate the computational expense and latency of LLMs for real-time anomaly detection and reactive planning? 
                 We propose a two-stage reasoning framework, whereby fast a LLM embedding model flags potential observational anomalies
@@ -468,11 +432,11 @@
               <video width="140" height="80" src="images/research/apple_droid.mp4" type="video/mp4" muted autoplay loop></video>
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset</span>
+              <a href="https://droid-dataset.github.io/"><span class="paper-title">DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset</span></a>
               <br>
               <a href="https://github.com/AlexanderKhazatsky">Alexander Khazatsky*</a>, <a href="https://kpertsch.github.io/">Karl Pertsch*</a>, ..., <strong>Christopher Agia</strong>, ..., <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>, <a href="https://ai.stanford.edu/~cbfinn/">Chelsea Finn</a>
               <br>
-              <em>Robotics: Science and Systems (RSS)</em>, 2024 | Delft, NL
+              <span class="conference-badge badge-rss">RSS 2024</span>
               <br>
               <a href="https://arxiv.org/abs/2403.12945">arXiv</a> / <a href="https://droid-dataset.github.io/">Project Site</a> / <a href="https://github.com/droid-dataset/droid">Code</a>
               <p>We introduce DROID (Distributed Robot Interaction Dataset), a diverse robot manipulation dataset with
@@ -490,11 +454,11 @@
               <video width="140" height="80" src="images/research/dare_mission_concept.mp4" type="video/mp4" muted autoplay loop></video>
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Modeling Considerations for Developing Deep Space Autonomous Spacecraft and Simulators</span>
+              <a href="https://sites.google.com/stanford.edu/spacecraft-models"><span class="paper-title">Modeling Considerations for Developing Deep Space Autonomous Spacecraft and Simulators</span></a>
               <br>
               <strong>Christopher Agia</strong>, <a href="https://www.guillemc.com/">Guillem Casadesus Vila</a>, <a href="https://www-robotics.jpl.nasa.gov/who-we-are/people/saptarshi_bandyopadhyay/">Saptarshi Bandyopadhyay</a>, <a href="https://scienceandtechnology.jpl.nasa.gov/people/d_bayard">David S. Bayard</a>, <a href="https://descanso.jpl.nasa.gov/biography/cheung.html">Kar-Ming Cheung</a>, <a href="https://ieeexplore.ieee.org/author/37336718000">Charles H. Lee</a>, <a href="https://ieeexplore.ieee.org/author/37285842700">Eric Wood</a>, <a href="https://www.linkedin.com/in/ian-aenishanslin-a46b61175/?originalSubdomain=fr">Ian Aenishanslin</a>, <a href="https://www.linkedin.com/in/steven-ardito-08a705b/">Steven Ardito</a>, <a href="https://www.cs.ucla.edu/lorraine-fesq/">Lorraine Fesq</a>, <a href="https://web.stanford.edu/~pavone/">Marco Pavone</a>, <a href="https://www-robotics.jpl.nasa.gov/who-we-are/people/issa_nesnas/">Issa A. D. Nesnas</a>
               <br>
-              <em>IEEE Aerospace Conference (AeroConf)</em>, 2024 | Montana, US
+              <span class="conference-badge badge-aeroconf">AeroConf 2024</span>
               <br>
               <a href="https://arxiv.org/abs/2401.11371">arXiv</a> / <a href="https://sites.google.com/stanford.edu/spacecraft-models">Project Site</a> / <a href="https://youtu.be/ejP_IDua6J0">Concept of Operations (Video)</a>
               <p>
@@ -511,11 +475,11 @@
               <video width="140" height="80" src="images/research/openx_teaser.mp4" type="video/mp4" muted autoplay loop></video>
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Open X-Embodiment: Robotic Learning Datasets and RT-X Models</span>
+              <a href="https://robotics-transformer-x.github.io/"><span class="paper-title">Open X-Embodiment: Robotic Learning Datasets and RT-X Models</span></a>
               <br>
               Open X-Embodiment Collaboration
               <br>
-              <em>IEEE International Conference on Robotics and Automation (ICRA)</em>, 2024 (<span class="text-award">Best Paper</span>) | Yokohama, JP
+              <span class="conference-badge badge-icra">ICRA 2024</span> <span class="award-star">★ Best Paper ★</span>
               <br>
               <a href="https://arxiv.org/abs/2310.08864">arXiv</a> / <a href="https://robotics-transformer-x.github.io/">Project Site</a> / <a href="https://deepmind.google/discover/blog/scaling-up-learning-across-many-different-robot-types/">Blogpost</a> / <a href="https://github.com/google-deepmind/open_x_embodiment">Code</a>
               <p>Conventionally, robotic learning methods train a separate model for every application, every robot, and even every environment. 
@@ -525,21 +489,21 @@
           </tr>
         </tbody></table>
 
-        <table class="representative tbl tbl--pad-top"><tbody> 
+        <table class="representative is-selected tbl tbl--pad-top"><tbody>
           <tr>
             <td class="cell-thumb">
               <img src="images/research/t2m_task6.gif" alt="clean-usnob" width="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Text2Motion: From Natural Language Instructions to Feasible Plans</span>
+              <a href="https://sites.google.com/stanford.edu/text2motion"><span class="paper-title">Text2Motion: From Natural Language Instructions to Feasible Plans</span></a>
               <br>
               <a href="https://kevin-thankyou-lin.github.io/">Kevin Lin*</a>, <strong>Christopher Agia*</strong>, <a href="https://cs.stanford.edu/~takatoki/">Toki Migimatsu</a>, <a href="https://web.stanford.edu/~pavone/">Marco Pavone</a>, <a href="https://web.stanford.edu/~bohg/">Jeannette Bohg</a>
               <br>
-              <em>Special Issue: Large Language Models in Robotics, Autonomous Robots (AR)</em>, 2023
+              <span class="conference-badge badge-ar">AR 2023</span>
               <br>
               <a href="https://arxiv.org/abs/2303.12153">arXiv</a> / <a href="https://link.springer.com/article/10.1007/s10514-023-10131-7">Springer Nature</a> / <a href="https://sites.google.com/stanford.edu/text2motion">Project Site</a> / <a href="https://youtu.be/JdzKskGS5Qo">YouTube</a> / <a href="https://www.youtube.com/watch?v=DNPeBznhBD4">Invited Talk</a>
               <br>
-              <span class="text-sm">ICRA 2023 Workshop on Pretraining for Robotics</span>
+              <span class="venue-note">ICRA 2023 Workshop on Pretraining for Robotics</span>
               <p>Pretrained large language models can be readily used to obtain high-level robot plans from natural lanugage instructions, but should these
                 plans be executed without verifying them on the geometric-level? We propose Text2Motion, a language-based planner that tests if 
                 LLM-generated plans (a) satisfy user instructions and (b) are geometric feasibility prior to executing them.
@@ -554,11 +518,11 @@
               <img src="images/research/semantic_anomaly.png" alt="clean-usnob" width="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Semantic Anomaly Detection with Large Language Models</span>
+              <a href="https://sites.google.com/view/llm-anomaly-detection/home"><span class="paper-title">Semantic Anomaly Detection with Large Language Models</span></a>
               <br>
               <a href="https://stanfordasl.github.io//people/amine-elhafsi/">Amine Elhafsi</a>, <a href="https://stanfordasl.github.io//people/rohan-sinha/">Rohan Sinha</a>, <strong>Christopher Agia</strong>, <a href="https://stanfordasl.github.io//people/edward-schmerling/">Edward Schmerling</a>, <a href="https://www-robotics.jpl.nasa.gov/who-we-are/people/issa_nesnas/">Issa A. D. Nesnas</a>, <a href="https://web.stanford.edu/~pavone/">Marco Pavone</a>
               <br>
-              <em>Special Issue: Large Language Models in Robotics, Autonomous Robots (AR)</em>, 2023
+              <span class="conference-badge badge-ar">AR 2023</span>
               <br>
               <a href="https://arxiv.org/abs/2305.11307">arXiv</a> / <a href="https://link.springer.com/article/10.1007/s10514-023-10132-6">Springer Nature</a> / <a href="https://sites.google.com/view/llm-anomaly-detection/home">Project Site</a>
               <p>System-level failures are not due to failures of any individual component of the autonomy stack but
@@ -570,18 +534,18 @@
           </tr>
         </tbody></table>
 
-        <table class="representative tbl tbl--pad-top"><tbody>
+        <table class="representative is-selected tbl tbl--pad-top"><tbody>
           <tr>
             <td class="cell-thumb">
               <video width="140" height="80" src="images/research/stap_hook_reach.mp4" type="video/mp4" muted autoplay loop></video>
               <video width="140" height="80" src="images/research/stap_constrained_packing.mp4" type="video/mp4" muted autoplay loop></video>
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">STAP: Sequencing Task-Agnostic Policies</span>
+              <a href="https://sites.google.com/stanford.edu/stap"><span class="paper-title">STAP: Sequencing Task-Agnostic Policies</span></a>
               <br>
               <strong>Christopher Agia*</strong>, <a href="https://cs.stanford.edu/~takatoki/">Toki Migimatsu*</a>, <a href="https://jiajunwu.com/">Jiajun Wu</a>, <a href="https://web.stanford.edu/~bohg/">Jeannette Bohg</a>
               <br>
-              <em>IEEE International Conference on Robotics and Automation (ICRA)</em>, 2023 | London, UK
+              <span class="conference-badge badge-icra">ICRA 2023</span>
               <br>
               <a href="https://arxiv.org/abs/2210.12250">arXiv</a> / <a href="https://sites.google.com/stanford.edu/stap">Project Site</a> / <a  href="https://youtu.be/78HiaQ6oF4s">YouTube</a> / <a href="https://github.com/agiachris/STAP">Code</a>
               <p>Solving sequential manipulation tasks requires coordinating geometric dependencies between actions. 
@@ -593,17 +557,17 @@
           </tr>
         </tbody></table>
 
-        <table class="representative tbl tbl--pad-top"><tbody>
+        <table class="representative is-selected tbl tbl--pad-top"><tbody>
           <tr>
             <td class="cell-thumb">
               <img src="images/research/taskography_3dsg.png" alt="clean-usnob" width="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Taskography: Evaluating Robot Task Planning over Large 3D Scene Graphs</span>
+              <a href="https://taskography.github.io/"><span class="paper-title">Taskography: Evaluating Robot Task Planning over Large 3D Scene Graphs</span></a>
               <br>
               <strong>Christopher Agia*</strong>, <a href="https://krrish94.github.io/author/krishna-murthy-jatavallabhula/">Krishna Murthy Jatavallabhula*</a>, <a href="https://www.linkedin.com/in/khodeir/?originalSubdomain=ca">Mohamed Khodeir</a>, <a href="https://www.microsoft.com/en-us/research/people/onmiksik/">Ondrej Miksik</a>, <a href="http://www.mustafamukadam.com/">Mustafa Mukadam</a>, <a href="http://vibhavvineet.info/">Vibhav Vineet</a>, <a href="https://liampaull.ca/">Liam Paull</a>, <a href="http://www.cs.toronto.edu/~florian/">Florian Shkurti</a>
               <br>
-              <em>Conference on Robot Learning (CoRL)</em>, 2021 | London, UK
+              <span class="conference-badge badge-corl">CoRL 2021</span>
               <br>
               <a href="https://arxiv.org/abs/2207.05006">arXiv</a> / <a href="https://taskography.github.io/">Project Site</a> / <a href="https://github.com/taskography">Code</a>
               <p>3D Scene Graphs (3DSGs) are informative abstractions of our world that unify symbolic, semantic, and metric scene representations. 
@@ -619,11 +583,11 @@
               <img src="images/research/aug_att_rl.gif" alt="clean-usnob" width="140" height="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Latent Attention Augmentation for Robust Autonomous Driving Policies</span>
+              <a href="papers/AttAugDRL-Self-Driving-IROS-2021.pdf"><span class="paper-title">Latent Attention Augmentation for Robust Autonomous Driving Policies</span></a>
               <br>
               <a href="https://rancheng.github.io/about/">Ran Cheng*</a>, <strong>Christopher Agia*</strong>, <a href="https://www.cim.mcgill.ca/~dmeger/">David Meger</a>, <a href="http://www.cs.toronto.edu/~florian/">Florian Shkurti</a>, <a href="http://www.cim.mcgill.ca/~dudek/">Gregory Dudek</a>
               <br>
-              <em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em>, 2021 | Prague, CZ
+              <span class="conference-badge badge-iros">IROS 2021</span>
               <br>
               <a href="papers/AttAugDRL-Self-Driving-IROS-2021.pdf">PDF</a> / <a href="https://ieeexplore.ieee.org/document/9636449">IEEExplore</a>
               <p>Pretraining visual representations for robotic reinforcement learning can improve sample efficiency and policy performance. 
@@ -639,11 +603,11 @@
               <video width="140" height="140" src="images/research/sim2real_drl_rough_nav.mp4" type="video/mp4" muted autoplay loop></video>
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">A Sim-to-Real Pipeline for Deep Reinforcement Learning for Autonomous Robot Navigation in Cluttered Rough Terrain</span>
+              <a href="papers/Sim2RealDRLNav-RAL-2021.pdf"><span class="paper-title">A Sim-to-Real Pipeline for Deep Reinforcement Learning for Autonomous Robot Navigation in Cluttered Rough Terrain</span></a>
               <br>
               <a href="https://www.linkedin.com/in/richardhu-12dsf/?originalSubdomain=ca">Han Hu*</a>, <a href="https://www.linkedin.com/in/kczhang/?originalSubdomain=ca">Kaicheng Zhang*</a>, <a href="https://www.linkedin.com/in/aaron-hao-tan/?originalSubdomain=ca">Aaron Hao Tan</a>, <a href="https://www.linkedin.com/in/michael-ruan-0822/">Michael Ruan</a>, <strong>Christopher Agia</strong>, <a href="https://www.mie.utoronto.ca/faculty_staff/nejat/"> Goldie Nejat</a>
               <br>
-              <em>IEEE Robotics and Automation Letters (RA-L)</em> at <em>IROS</em>, 2021 | Prague, CZ
+              <span class="conference-badge badge-ral">RA-L 2021</span>
               <br>
               <a href="papers/Sim2RealDRLNav-RAL-2021.pdf">PDF</a> / <a href="https://ieeexplore.ieee.org/document/9468918">IEEExplore</a> / <a href="https://www.youtube.com/watch?v=dtYlNWvK-7k&ab_channel=AutonomousSystemsandBiomechatronicsLab%28UniversityofToronto%29">Demo</a>
               <p>Deep Reinforcement Learning is effective for learning robot navigation policies in rough terrain and cluttered simulated environments. 
@@ -658,11 +622,11 @@
               <img src="images/research/sem_loc.gif" alt="clean-usnob" width="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Lightweight Semantic-aided Localization with Spinning LiDAR Sensor</span>
+              <a href="papers/SemanticLoc-TIV-2021.pdf"><span class="paper-title">Lightweight Semantic-aided Localization with Spinning LiDAR Sensor</span></a>
               <br>
               Yuan Ren, <a href="https://scholar.google.ca/citations?user=-rCulKwAAAAJ&hl=en">Bingbing Liu</a>, <a href="https://rancheng.github.io/about/">Ran Cheng</a>, <strong>Christopher Agia</strong>
               <br>
-              <em>IEEE Transactions on Intelligent Vehicles (T-IV)</em>, 2021
+              <span class="conference-badge badge-tiv">T-IV 2021</span>
               <br>
               <a href="papers/SemanticLoc-TIV-2021.pdf">PDF</a> / <a href="https://ieeexplore.ieee.org/document/9495210">IEEExplore</a>
               <p>How can semantic information be leveraged to improve localization accuracy in changing environments? We present a robust LiDAR-based localization 
@@ -677,12 +641,12 @@
               <img src="images/research/s3cnet_demo.gif" alt="clean-usnob" width="140" height="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">S3CNet: A Sparse Semantic Scene Completion Network for LiDAR Point Clouds</span>
+              <a href="https://arxiv.org/abs/2012.09242"><span class="paper-title">S3CNet: A Sparse Semantic Scene Completion Network for LiDAR Point Clouds</span></a>
               <br>
               <a href="https://rancheng.github.io/about/">Ran Cheng*</a>, <strong>Christopher Agia*</strong>, Yuan Ren, <a href="https://scholar.google.ca/citations?user=-rCulKwAAAAJ&hl=en">Bingbing Liu</a>
               <br>
-              <em>Conference on Robot Learning (CoRL)</em>, 2020 | Cambridge, US
-              <br> 
+              <span class="conference-badge badge-corl">CoRL 2020</span>
+              <br>
               <a href="https://arxiv.org/abs/2012.09242">arXiv</a> / <a href="https://www.youtube.com/watch?v=ircJBFc5PqM&feature=youtu.be&ab_channel=CoRLConference">YouTube</a> / <a href="https://www.youtube.com/watch?v=voU_zAhNDnQ&feature=youtu.be&ab_channel=RanCheng">Demo</a>
               <p>Small-scale semantic reconstruction methods have had little success in large outdoor scenes as a result of exponential increases in sparsity, 
                 and a computationally expensive design. We propose a sparse convolutional network architecture based on the <a href="https://github.com/StanfordVL/MinkowskiEngine">Minkowski Engine</a>, 
@@ -697,38 +661,49 @@
               <img src="images/research/ddvo_res.gif" alt="clean-usnob" width="140" height="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Depth Prediction for Monocular Direct Visual Odometry</span>
+              <a href="papers/CNN-DVO-CRV-2020.pdf"><span class="paper-title">Depth Prediction for Monocular Direct Visual Odometry</span></a>
               <br>
               <a href="https://rancheng.github.io/about/">Ran Cheng</a>, <strong>Christopher Agia</strong>, <a href="https://www.cim.mcgill.ca/~dmeger/">David Meger</a>, <a href="http://www.cim.mcgill.ca/~dudek/">Gregory Dudek</a>
               <br>
-              <em>Conference on Computer and Robotic Vision (CRV)</em>, 2020 | Ottawa, CA
-              <br> 
+              <span class="conference-badge badge-crv">CRV 2020</span>
+              <br>
               <a href="papers/CNN-DVO-CRV-2020.pdf">PDF</a> / <a href="https://ieeexplore.ieee.org/document/9108693">IEEExplore</a> / <a href="https://www.youtube.com/watch?v=Z8vpet0doik&feature=youtu.be&ab_channel=ComputerRobotVision">YouTube</a>
-              <p>Direct methods are able to track motion with considerable long-term accuracy. However, scale inconsistent estimates arise from random or unit depth initialization. 
+              <p>Direct methods are able to track motion with considerable long-term accuracy. However, scale inconsistent estimates arise from random or unit depth initialization.
                 We integrate dense depth prediction with the Direct Sparse Odometry system to accelerate convergence in the windowed bundle-adjustment and promote estimates with consistent scale.</p>
+            </td>
+          </tr>
+        </tbody></table>
+        </div>
+
+        <table class="tbl tbl--section-gap"><tbody>
+          <tr>
+            <td class="section-label">
+              <h2 class="section-heading">Theses & Dissertations</h2>
             </td>
           </tr>
         </tbody></table>
 
         <table class="tbl tbl--surface"><tbody>
           <tr>
-            <td class="cell-full">
-              <h2 class="section-heading">Theses / Dissertations</h2>
+            <td class="cell-lede">
+              <p class="research-lede">My thesis and dissertation research, ordered by recency.</p>
             </td>
           </tr>
         </tbody></table>
-        
+
         <table class="tbl tbl--surface"><tbody>  
           <tr>
             <td class="cell-thumb">
               <img src="images/school/Stanford-Crest-Square.png" alt="clean-usnob" width="140" height="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Deployment-Time Reliability of Learned Robot Policies</span>
+              <a href="https://arxiv.org/abs/2603.11400"><span class="paper-title">Deployment-Time Reliability of Learned Robot Policies</span></a>
               <br>
               <strong>Christopher Agia</strong>, <a href="https://web.stanford.edu/~pavone/">Marco Pavone</a>, <a href="https://web.stanford.edu/~bohg/">Jeannette Bohg</a>
               <br>
-              <em>Department of Computer Science, Stanford University</em>, 2026 | Stanford, US
+              <span class="conference-badge badge-phd">PhD Dissertation</span>
+              <br>
+              <em>Department of Computer Science, Stanford University</em>, 2026
               <br>
               <a href="https://arxiv.org/abs/2603.11400">arXiv</a> / <a href="https://www.youtube.com/watch?v=LEszowSmOEc">YouTube</a>
               <p>
@@ -745,11 +720,13 @@
               <img src="images/school/UofT-Crest-Square.png" alt="clean-usnob" width="140" height="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Contextual Graph Representations for Task-Driven 3D Perception and Planning</span>
+              <a href="https://arxiv.org/abs/2603.26685"><span class="paper-title">Contextual Graph Representations for Task-Driven 3D Perception and Planning</span></a>
               <br>
               <strong>Christopher Agia</strong>, <a href="http://www.cs.toronto.edu/~florian/">Florian Shkurti</a>
               <br>
-              <em>Division of Engineering Science, University of Toronto</em>, 2020 | Toronto, CA
+              <span class="conference-badge badge-bsc">Undergraduate Thesis</span>
+              <br>
+              <em>Division of Engineering Science, University of Toronto</em>, 2020
               <br>
               <a href="https://arxiv.org/abs/2603.26685">arXiv</a>
               <p>
@@ -762,11 +739,38 @@
           </tr>
         </tbody></table>
 
+        <table class="tbl tbl--section-gap"><tbody>
+          <tr>
+            <td class="section-label">
+              <h2 class="section-heading">Patents</h2>
+            </td>
+          </tr>
+        </tbody></table>
+
         <table class="tbl tbl--surface"><tbody>
           <tr>
-            <td class="cell-full">
-              <h2 class="section-heading">Patents</h2>
-              <p>Several components of my industry research projects were patented alongside submitting to conference / journal venues.
+            <td class="cell-lede">
+              <p class="research-lede">
+                Several of my research ideas have been patented alongside conference or journal publication.
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+
+        <table class="tbl tbl--surface"><tbody>  
+          <tr>
+            <td class="cell-thumb">
+              <img src="images/research/patent_cupid.png" alt="clean-usnob" width="140" height="140">
+            </td>
+            <td width="75%" valign="middle">
+              <span class="paper-title">Curating Training Data for Robot Learning based on Influence Functions</span>
+              <br>
+              <strong>Christopher Agia</strong>, <a href="https://rohansinha.nl/">Rohan Sinha</a>, <a href="https://yjy0625.github.io/">Jingyun Yang</a>, <a href="https://contactrika.github.io/">Rika Antonova</a>, <a href="https://web.stanford.edu/~pavone/">Marco Pavone</a>, <a href="https://harukins.github.io/">Haruki Nishimura</a>, <a href="https://mashaitkina.weebly.com/">Masha Itkina</a>, <a href="https://web.stanford.edu/~bohg/">Jeannette Bohg</a>
+              <br>
+              In preparation
+              <p>
+                Relates to methods and systems for automatically curating robotics datasets for robot imitation learning. 
+                More specifically, relates to filtering or selecting demonstration data to maximize downstream KPIs of an imitation learning system using influence functions.
               </p>
             </td>
           </tr>
@@ -778,7 +782,7 @@
               <img src="images/research/patent_road_segmentation.png" alt="clean-usnob" width="140" height="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Systems and Methods for Generating a Road Surface Semantic Segmentation Map from a Sequence of Point Clouds</span>
+              <a href="https://patents.google.com/patent/US12008762B2/en"><span class="paper-title">Systems and Methods for Generating a Road Surface Semantic Segmentation Map from a Sequence of Point Clouds</span></a>
               <br>
               <strong>Christopher Agia</strong>, <a href="https://rancheng.github.io/about/">Ran Cheng</a>, Yuan Ren, <a href="https://scholar.google.ca/citations?user=-rCulKwAAAAJ&hl=en">Bingbing Liu</a>
               <br>
@@ -797,7 +801,7 @@
               <img src="images/research/patent_scene_completion.png" alt="clean-usnob" width="140" height="140">
             </td>
             <td width="75%" valign="middle">
-              <span class="paper-title">Methods and Systems for Semantic Scene Completion for Sparse 3D Data</span>
+              <a href="https://patents.google.com/patent/US12079970B2/en"><span class="paper-title">Methods and Systems for Semantic Scene Completion for Sparse 3D Data</span></a>
               <br>
               <a href="https://rancheng.github.io/about/">Ran Cheng*</a>, <strong>Christopher Agia*</strong>, Yuan Ren, <a href="https://scholar.google.ca/citations?user=-rCulKwAAAAJ&hl=en">Bingbing Liu</a>
               <br>
@@ -808,567 +812,136 @@
             </td>
           </tr>
         </tbody></table>
-        <p></p>
-
-        
-        <!-- Work Experience -->
-        <button type="button" class="accordion" id="accordion-work" aria-expanded="false" aria-controls="panel-work">..Work Experience</button>
-        <div class="panel" id="panel-work" role="region" aria-labelledby="accordion-work">
-        <p></p>
-        <!-- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-          <tr>
-            <td>
-              <h2 class="section-heading">Work Experience</h2>
-            </td>
-          </tr>
-        </tbody></table> -->
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/experience/NASA_logo.jpg" alt="clean-usnob" width="120" height="120">
-            </td>
-            <td width="75%" valign="middle">
-              <span class="paper-title">Visiting Research Scholar</span>
-              <br>
-                <a href="https://www.jpl.nasa.gov/">NASA Jet Propulsion Laboratory</a>, <a href="https://www-robotics.jpl.nasa.gov/">Mobility and Robotics Systems</a>
-              <br>
-                Jun 2023 - Sep 2023 | Pasadena, California
-              <p> 
-                Research on deep space robotic autonomy.
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/experience/microsoft_logo.jpg" alt="clean-usnob" width="120" height="120">
-            </td>
-            <td width="75%" valign="middle">
-              <span class="paper-title">Software Engineering Intern</span>
-              <br>
-                <a href="https://www.microsoft.com/en-us/research/project/robotics-and-mixed-reality/">Microsoft</a>, Mixed Reality and Robotics
-              <br>
-                May 2021 - Aug 2021 | Redmond, Washington
-              <p> 
-                Research & development at the intersection of mixed reality, artificial intelligence, and robotics. 
-                Created a process unlocking the training and <a href="https://www.microsoft.com/en-us/hololens/hardware">HL2</a> 
-                deployment of multi-agent reinforcement learning scenarios in shared digital spatial-semantic representations with 
-                <a href="https://docs.microsoft.com/en-us/windows/mixed-reality/design/scene-understanding">Scene Understanding</a>.
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/experience/vector_institute_logo.jpg" alt="clean-usnob" width="120" height="120">
-            </td>
-            <td width="75%" valign="middle">
-              <span class="paper-title">Robotics & ML Researcher</span>
-              <br>
-                <a href="https://vectorinstitute.ai/">Vector Institute</a>, <a href="https://rvl.cs.toronto.edu/">Robot Vision and Learning Lab</a> | Advised by <a href="http://www.cs.toronto.edu/~florian/">Prof. Florian Shkurti</a>  
-              <br>
-                <a href="https://web.cs.toronto.edu/">Department of Computer Science</a>, University of Toronto
-              <br>
-                May 2020 - Apr 2021 | Toronto, ON
-              <p>
-                Research in artificial intelligence and robotics. Topics include task-driven perception via learning map representations for downstream 
-                control tasks with graph neural networks, and visual state abstraction for Deep Reinforcement Learning based self-driving control.
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/experience/google_logo.png" alt="clean-usnob" width="120" height="120">
-            </td>
-            <td width="75%" valign="middle">
-              <span class="paper-title">Software Engineering Intern</span>
-              <br>
-                <a href="https://about.google/">Google</a>, Cloud
-              <br>
-                May 2020 - Aug 2020 | San Francisco, CA
-              <p> 
-                Designed a Proxy-Wasm ABI <a href="https://github.com/proxy-wasm/test-framework">Test Harness and Simulator</a> that supports both 
-                low-level and high-level mocking of interactions between a Proxy-Wasm extension and a simulated host environment, 
-                allowing developers to test plugins in a safe and controlled environment.
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/experience/mcgill_logo.png" alt="clean-usnob" width="120" height="120">
-            </td>
-            <td width="75%" valign="middle">
-              <span class="paper-title">Robotics & ML Research Intern</span>
-              <br>
-                <a href="https://www.cim.mcgill.ca/~mrl/">Mobile Robotics Lab</a> | Supervised by <a href="http://www.cim.mcgill.ca/~dmeger/">Prof. David Meger</a>, <a href="http://www.cim.mcgill.ca/~dudek/">Prof. Gregory Dudek</a> 
-              <br>
-                <a href="https://www.cs.mcgill.ca/">School of Computer Science</a>, McGill University
-              <br>
-                Jan 2020 - May 2020 | Toronto, ON
-              <p> 
-                Machine learning and robotics research on the topics of Visual SLAM and Deep Reinforcement Learning in collaboration with the Mobile Robotics Lab.
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-      
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/experience/huawei_logo.jpg" alt="clean-usnob" width="120" height="120">
-            </td>
-            <td width="75%" valign="middle">
-              <span class="paper-title">Deep Learning Research Intern</span>
-              <br>
-                Huawei Technologies, <a href="http://www.noahlab.com.hk/#/home">Noah's Ark Research Lab</a>
-              <br>
-                May 2019 - May 2020 | Toronto, ON
-              <p> 
-                Research and development for autonomous systems (self-driving technology). Research focus and related topics: 2D/3D semantic scene completion, 
-                LiDAR-based segmentation, road estimation, visual odometry, depth estimation, and learning-based localization. 
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/experience/autoronto_logo.png" alt="clean-usnob" width="120" height="120">
-            </td>
-            <td width="75%" valign="middle">
-              <span class="paper-title">Autonomy Engineer - Object Detection</span>
-              <br>
-                <a href="https://www.autodrive.utoronto.ca/about-us">aUToronto</a>, Object Detection Team | <a href="https://www.sae.org/attend/student-events/autodrive-challenge/">SAE/GM Autodrive Challenge </a> 
-              <br>
-                Aug 2019 - Apr 2020 | Toronto, ON
-              <p> 
-                Developed a state-of-the-art deep learning pipeline for real-time 3D detection and tracking of vehicles, pedestrians and cyclists from multiple sensor input. 
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/school/UofT-Crest-Square.png" alt="clean-usnob" width="120" height="120">
-            </td>
-            <td width="75%" valign="middle">
-              <span class="paper-title">Robotics Research Intern</span>
-              <br>
-                <a href="http://asblab.mie.utoronto.ca/">Autonomous Systems and Biomechatronics Lab</a> | Advised by <a href="https://www.mie.utoronto.ca/faculty_staff/nejat/">Prof. Goldie Nejat</a>
-              <br>
-                <a href="https://www.mie.utoronto.ca/">Department of Mechanical and Industrial Engineering</a>, University of Toronto
-              <br>
-                May 2018 - Aug 2018 | Toronto, ON
-              <p> 
-                Search and rescue robotics - research on the topics of Deep Reinforcement Learning and Transfer Learning for autonomous robot navigation in rough and 
-                hazardous terrain. ROS (Robot Operating System) software development for various mobile robots.
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/experience/ge_logo.jpg" alt="clean-usnob" width="120" height="120">
-            </td>
-            <td width="75%" valign="middle">
-              <span class="paper-title">Software Engineering Intern</span>
-              <br>
-                General Electric, <a href="https://www.gegridsolutions.com/index.htm">Grid Solutions</a>
-              <br>
-                May 2017 - Aug 2017 | Markham, ON
-              <p> 
-                Created customer-end software tools used to accelerate the transition/setup process of new protection and control systems upon upgrade. 
-                Designed the current Install-Base and Firmware Revision History databases used by GE internal service teams.
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-        </div>
-        <p></p>
-
-
-        <!-- Projects -->
-        <button type="button" class="accordion" id="accordion-projects" aria-expanded="false" aria-controls="panel-projects">..Projects and Competitions</button>
-        <div class="panel" id="panel-projects" role="region" aria-labelledby="accordion-projects">
-        <!-- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-          <tr>
-            <td>
-              <h2 class="section-heading">Projects and Competitions</h2>
-              <p>
-                <strong>Learn by doing</strong> - I've had the opportunity to work on many interesting projects that range across industries such as Robotics, Health Care, Finance, Transportation, and Logistics.  
-              <p>
-                Links to the source code are embedded in the project titles.
-              </p>
-            </td>
-          </tr>
-        </tbody></table> -->
-
-        <table class="tbl"><tbody>
-          <tr>
-            <td class="cell-full">
-              <p class="text-center">
-                <em>“Give the pupils something to do, not something to learn;<br>
-                  and the doing is of such a nature as to demand thinking; learning naturally results.”</em> - John Dewey
-              </p>
-              <p>
-                <strong>I've worked on a number of exciting software, machine learning, and deep learning projects.</strong>
-                Their applications cover a range of industries: Robotics, Graphics, Health Care, Finance, Transportation, Logistics, to name a few! 
-              </p>
-              <p>
-                <strong>The majority of these projects were accomplished in teams!</strong>
-                The results also reflect the efforts of the many talented individuals I've had the opportunity to collaborate with and learn from over the years.
-              </p> 
-              <p>
-                Links to the source code are embedded in the project titles.
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/baby_ai.png" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <!-- <a href="https://github.com/agiachris/SfMLearnerMars"> -->
-                <span class="paper-title">Instruction Prediction as a Constructive Task for Imitation and Adaptation</span>
-              <!-- </a> -->
-              <br>
-                Stanford University, CS330 Deep Multi-task and Meta Learning
-              <p>
-                Can natural language substitute as abstract planning medium for solving long-horizon tasks when obtaining
-                additional demonstrations is prohibitively expensive?  We show: (a) policies trained to predict actions 
-                and instructions (multi-task) improves performance by 30%; (b) policies can be adapted to novel tasks 
-                (meta learning) solely from language instructions.
-                <a href="https://drive.google.com/file/d/1wVhueOz0Qrlc9onVE2dr3jk50OqPFF-G/view?usp=sharing">Project report</a> /
-                <a href="https://drive.google.com/file/d/1Ovui1eG_EaellsExHrko50hs_WMIDr-Q/view?usp=sharing">Poster</a>               
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/StyleGAN-faces.png" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <!-- <a href="https://github.com/agiachris/SfMLearnerMars"> -->
-                <span class="paper-title">Controllable and Image-Free StyleGAN Retraining for Expansive Domain Transfer</span>
-              <!-- </a> -->
-              <br>
-                Stanford University, CS348i Computer Graphics in the Era of AI
-              <p>
-                <a href="https://arxiv.org/abs/1812.04948">StyleGAN</a> has a remarkable capacity to generate photrealistic images 
-                in a controllable manner thanks to its <em>disentangled latent space</em>. However, such architectures can be difficult 
-                and costly to train, and domain adaptation methods tend to forego sample diversity and image quality. We prescribe a set
-                of ammendments to <a href="https://arxiv.org/abs/2108.00946"></a>StyleGAN-NADA which improve on the pitfalls of text-driven 
-                (image-free) domain adaptation of pretrained StyleGANs.  
-                <a href="https://drive.google.com/file/d/1ZOJaeT0IWfElH7rWrRxHTHHBgKr1YGKN/view?usp=sharing">Project report</a> /
-                <a href="https://drive.google.com/file/d/1y0zCOB8lIUdrqiqCtwQEZD_hV6phjZCC/view?usp=sharing">Presentation</a>               
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/uncertainty_fig.png" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <!-- <a href="https://github.com/agiachris/SfMLearnerMars"> -->
-                <span class="paper-title">Bayesian Temporal Convolutional Networks</span>
-              <!-- </a> -->
-              <br>
-                University of Toronto, CSC413 Neural Networks and Deep Learning
-              <p>
-                In this project, we explore the application of variational inference via <a href="https://arxiv.org/abs/1505.05424">Bayes by Backprop</a> to the increasingly 
-                popular temporal convolutional networks (<a href="https://arxiv.org/abs/1803.01271">TCNs</a>) architecture for time series predictive forecasting. 
-                Comparisons are made to the effective state-of-the-art in a series of ablation studies. 
-                <a href="https://drive.google.com/file/d/1DZY1iPzOM_QXONoLzzPvMOBEs20Uy_7e/view?usp=sharing">Project report</a>
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/train_s0_disp.png" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/agiachris/SfMLearnerMars">
-                <span class="paper-title">SfMLearner on Mars</span>
-              </a>
-              <br>
-                University of Toronto, ROB501 Computer Vision for Robotics
-              <p> 
-                Adapted the SfMLearner framework from <a href="https://people.eecs.berkeley.edu/~tinghuiz/projects/SfMLearner/">Unsupervised Learning of Depth and Ego-Motion from Video</a> 
-                to The Canadian Planetary Emulation Terrain Energy-Aware Rover Navigation Dataset (<a href="https://starslab.ca/enav-planetary-dataset/">dataset webpage</a>), 
-                and evaluated its feasibility for tracking in low-textured martian-like environments from monochrome image sequences. 
-                <a href="https://drive.google.com/file/d/16v0W1VfNscWW1BTFe7GG9-p4JagS2nBy/view?usp=sharing">Project report</a>
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/rec_chair.png" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/agiachris/rotational3DCNN">
-                <span class="paper-title">3D Shape Reconstruction</span>
-              </a>
-              <br>
-                University of Toronto, APS360 Applied Fundamentals of Machine Learning
-              <p> 
-                An empirical study of various 3D Convolutional Neural Network architectures for predicting the full voxel geometry of objects given their partial signed distance 
-                field encodings (from the <a href="https://shapenet.org/">ShapeNetCore</a> database). 
-                <a href="https://github.com/agiachris/rotational3DCNN/blob/main/project_description_and_results/ProjectReport.pdf">Project report</a>
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/aer201.png" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/agiachris/AER201-Microcontroller">
-                <span class="paper-title">Autonomous Packing Robot</span>
-              </a>
-              <br>
-                University of Toronto, AER201 Robot Competition
-              <p> 
-                Designed, built, and programmed a robot that systematically sorts and packs up to 50 pills/minute to assist those suffering from dimentia. 
-                An efficient user interface was created to allow a user to input packing instructions. <strong><em> Team placed 3rd/50.</em></strong> 
-                <a href="https://drive.google.com/file/d/1wl2uyzpLt61S0hzdNPHVLlGFJeSz2zRs/view?usp=sharing">Detailed project documentation</a> / 
-                <a href="https://www.youtube.com/watch?v=iv9r8VIvHpQ">Youtube video</a>
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/cec.png" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/kimwoo11/cec2019">
-                <span class="paper-title">Automated Robotic Garbage Collection</span>
-              </a>
-              <br>
-                Canadian Engineering Competition 2019, Programming Challenge
-              <p> 
-                Based on the robotics <a href="https://en.wikipedia.org/wiki/Sense_Plan_Act">Sense-Plan-Act Paradigm</a>, we created an AI program 
-                to handle high-level (path planning, goal setting) and low-level (path following, object avoidance, action execution) tasks for an 
-                automated waste collection system to be used in fast food restaurants. <strong><em>4th place Canada.</em></strong> 
-                <a href="https://drive.google.com/file/d/1rYYnvsim5CcmZjdqTi77GO5-5UgTqhUc/view?usp=sharing">Presentation </a>
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/oec_logo.jpg" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/kimwoo11/oec2019">
-                <span class="paper-title">Hospital Triage System</span>
-              </a>
-              <br>
-                Ontario Engineering Competition 2019, Programming Challenge
-              <p> 
-                Developed a machine learning software solution to predict the triage score of emergency patients, allocate available resources to 
-                patients, and track key hospital performance metrics to reduce emergency wait times. <strong><em>1st place Ontario.</em></strong> 
-                <a href="https://drive.google.com/file/d/131vm1maZUMwwmfP15GKlHtS03BRCOEMn/view?usp=sharing">Presentation</a> / <a href="images/teams/oec_team.jpg">Team photo</a>
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/utek_logo.png" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/kimwoo11/utek2019">
-                <span class="paper-title">Warehouse Logistics Planning</span>
-              </a>
-              <br>
-                UTEK Engineering Competition 2019, Programming Challenge
-              <p> 
-                Created a logistics planning algorithm that assigned mobile robots to efficiently retrieve warehouse packages. Our solution combined 
-                traditional algorithms such as A* Path Planning with heuristic-based clustering. <strong><em>1st place UofT.</em></strong> 
-                <a href="https://drive.google.com/file/d/1ZynKLH1kdHOEQr2_tRnss4r-cF7ILf8S/view?usp=sharing">Presentation</a> / <a href="images/teams/utek_team.jpg">Team photo</a>
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/mie438.png" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <span class="paper-title">Smart Intersection - Yonge and Dundas</span>
-              <br>
-                University of Toronto, MIE438 Robot Design
-              <p> 
-                We propose a traffic intersection model which uses computer vision to estimate lane congestion and manage traffic flow accordingly. 
-                A mockup of our proposal was fabricated to display the behaviour and features of our system. 
-                <a href="https://drive.google.com/file/d/10SHGcUwMIGsUryGMhp0yHSlfHsys0UA0/view?usp=sharing">Detailed report</a> / 
-                <a href="https://www.youtube.com/watch?v=fOmKNn2y-C4">YouTube video</a> 
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody>  
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/cibc_logo.png" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/agiachris/CIBC-Hackathon">
-                <span class="paper-title">Insurance Fraud Detection</span>
-              </a>
-              <br>
-                CIBC Data Studio Hackathon, Programming Challenge
-              <p> 
-                Developed an unsupervised learning system utilizing Gaussian Mixture Models to identify insurance claim anomalies for CIBC.
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody> 
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/bluesky_logo.jpg" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/agiachris/Solar-Array-Simulator">
-                <span class="paper-title">Solar Array Simulation</span>
-              </a>
-              <br>
-                Blue Sky Solar Racing, Strategic Planning Team
-              <p> 
-                Created a simulator that ranks the performance of any solar array CAD model by predicting the instantaneous energy generated under various daylight conditions. 
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody> 
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/gomoku.png" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/agiachris/Gomoku-AI-Engine">
-                <span class="paper-title">Gomoku AI Engine</span>
-              </a>
-              <br>
-                University of Toronto, Class Competition
-              <p> 
-                Developed an AI program capable of playing Gomoku against both human and virtual opponents. The software's decision making process 
-                is determined by experimentally tuned heuristics which were designed to emulate that of a human opponent. 
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table class="tbl"><tbody> 
-          <tr>
-            <td class="cell-thumb">
-              <img src="images/projects/semsim.png" alt="clean-usnob" width="100" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/agiachris/Semantic-Similarity">
-                <span class="paper-title">Word Pairing - Semantic Similarity</span>
-              </a>
-              <br>
-                University of Toronto, Class Competition
-              <p> 
-                Programmed an intelligent system that approximates the semantic similarity between any two pair of words by parsing data from 
-                large novels and computing cosine similarities and Euclidean spaces between vector descriptors of each word.
-              </p> 
-            </td>
-          </tr>
-        </tbody></table>
-        </div>
 
       </td>
       </tr>
     </table>
     </main>
 
+    <div class="site-icons-divider"></div>
+    <div class="site-icons-row">
+      <a href="mailto:cagia@cs.stanford.edu" title="Email" aria-label="Email">
+        <svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+      </a>
+      <a href="https://scholar.google.com/citations?user=t8Em5FwAAAAJ&hl=en" title="Google Scholar" aria-label="Google Scholar" target="_blank" rel="noopener">
+        <svg viewBox="5 49 374 414" fill="currentColor" aria-hidden="true"><path d="M 343.75868,106.66243 V 79.430205 L 363.52365,63.999997 H 149.63354 L 20.476345,176.2736 h 85.656075 c -0.15534,2.12494 -0.21914,4.04644 -0.21914,6.22563 0,20.84472 7.2192,38.08662 21.67203,51.86089 14.45284,13.79702 32.25124,20.64784 53.32651,20.64784 4.92319,0 9.75059,-0.36794 14.43842,-1.02419 -2.90722,6.50082 -4.37457,12.52302 -4.37457,18.14228 0,9.87526 4.49924,20.4304 13.46715,31.6418 -39.23377,2.6705 -68.06112,9.73264 -86.43702,21.16322 -10.53108,6.49907 -19.000207,14.70396 -25.390349,24.5311 -6.390569,9.89933 -9.577754,20.51525 -9.577754,31.9616 0,9.64822 2.062375,18.33611 6.21907,26.06233 4.156694,7.7263 9.577757,14.07047 16.312223,18.98408 6.71825,4.96781 14.46899,9.10088 23.219,12.46874 8.73429,3.34378 17.40643,5.71858 26.06106,7.06258 8.62707,1.34222 17.20471,1.9985 25.70579,1.9985 13.46887,0 26.95353,-1.73428 40.54711,-5.18707 13.56165,-3.48461 26.28022,-8.64143 38.17105,-15.4927 11.85935,-6.80488 21.51545,-16.0865 28.9219,-27.7183 7.39024,-11.67998 11.09457,-24.80499 11.09457,-39.33613 0,-11.01584 -2.24964,-21.03852 -6.7502,-30.14073 -4.46864,-9.07202 -9.93785,-16.54102 -16.45271,-22.34403 -6.5008,-5.81263 -12.99987,-11.15539 -19.51512,-15.9679 -6.50083,-4.84488 -12.00021,-9.75058 -16.46884,-14.8129 -4.4848,-5.04657 -6.73444,-10.05419 -6.73444,-14.98395 0,-4.92145 1.73422,-9.67183 5.21588,-14.26559 3.45451,-4.6095 7.67376,-9.04795 12.60967,-13.30571 4.93756,-4.24944 9.87523,-8.96788 14.79665,-14.13302 4.92147,-5.14719 9.14072,-11.82739 12.60971,-20.00822 3.48467,-8.17907 5.20318,-17.44489 5.20318,-27.75679 0,-13.4527 -2.54714,-24.46065 -7.54735,-33.31348 -0.59369,-1.02243 -1.21757,-1.80338 -1.87511,-3.02225 l 56.90745,-46.672136 v 17.118526 c -7.39373,0.92969 -6.62422,5.34582 -6.62422,10.6352 v 128.66719 c 0,5.95832 4.8751,10.83382 10.83386,10.83382 h 3.98869 c 5.95835,0 10.83386,-4.87506 10.83386,-10.83382 V 117.29282 c 0,-5.27669 0.77741,-9.68801 -6.56167,-10.63039 z M 236.39865,329.14114 c 1.14099,0.7503 3.7039,2.78075 7.7184,6.03838 4.0495,3.24319 6.797,5.69582 8.26567,7.41432 1.43851,1.66381 3.5792,4.16501 6.37617,7.54734 2.81268,3.3744 4.7184,6.30394 5.71853,8.73425 1.00016,2.4767 2.01603,5.46089 3.04636,8.94556 0.98567,3.44488 1.48486,6.97595 1.48486,10.56169 0,17.04813 -6.56338,29.68007 -19.65604,37.85915 -13.125,8.18083 -28.76651,12.27368 -46.93767,12.27368 -9.18709,0 -18.2031,-1.09289 -27.06247,-3.1951 -8.84322,-2.11665 -17.31192,-5.3362 -25.39035,-9.60185 -8.07846,-4.25771 -14.57754,-10.20337 -19.50072,-17.79659 -4.93764,-7.64012 -7.40645,-16.41464 -7.40645,-26.24962 0,-10.32022 2.79692,-19.28987 8.42233,-26.90588 5.59343,-7.62564 12.93774,-13.3919 22.03208,-17.3154 9.0624,-3.94582 18.24946,-6.74232 27.56166,-8.39827 9.31221,-1.7023 18.79679,-2.555 28.43842,-2.555 4.46862,0 7.93582,0.25115 10.40465,0.69607 0.45456,0.21918 3.03188,2.07025 7.73456,5.56326 4.70401,3.46237 7.62565,5.59519 8.75047,6.38401 z m -3.35823,-100.5779 c -7.40648,8.85938 -17.73454,13.2882 -30.95363,13.2882 -11.85933,0 -22.29766,-4.76482 -31.26554,-14.31195 -8.99984,-9.52309 -15.42235,-20.32803 -19.34408,-32.43061 -3.93752,-12.10871 -5.90585,-23.98423 -5.90585,-35.648 0,-13.6942 3.59542,-25.35184 10.7809,-34.97598 7.18727,-9.64952 17.49915,-14.48477 30.93786,-14.48477 11.87507,0 22.37423,5.03825 31.43704,15.15677 9.09434,10.08482 15.60961,21.41303 19.5169,33.96799 3.92176,12.5392 5.87345,24.52979 5.87345,35.98399 0,13.44658 -3.70256,24.60984 -11.07663,33.45436 z"/></svg>
+      </a>
+      <a href="https://github.com/agiachris/" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 0 1 6.003 0c2.29-1.552 3.297-1.23 3.297-1.23.655 1.652.244 2.873.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.371.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="http://www.linkedin.com/in/agiachris/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://x.com/agiachris" title="X" aria-label="X" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-content">
+          <div class="footer-note">© Copyright <span id="footer-year"></span> Christopher Agia. Hosted by GitHub Pages. Last updated <span id="footer-updated"></span>.</div>
+        </div>
+      </div>
+    </footer>
+
     <script>
       (function () {
-        document.querySelectorAll(".accordion").forEach(function (button) {
-          var panel = button.nextElementSibling;
-          if (!panel || !panel.classList.contains("panel")) return;
+        var trigger = document.getElementById("bio-trigger");
+        var modal = document.getElementById("bio-modal");
+        var closeBtn = document.getElementById("bio-close");
+        if (!trigger || !modal || !closeBtn) return;
 
-          button.addEventListener("click", function () {
-            var isOpen = button.classList.toggle("active");
-            button.setAttribute("aria-expanded", isOpen ? "true" : "false");
-            if (panel.style.maxHeight) {
-              panel.style.maxHeight = "";
-            } else {
-              panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-          });
+        function openModal() {
+          modal.classList.add("open");
+          modal.setAttribute("aria-hidden", "false");
+          closeBtn.focus();
+        }
+
+        function closeModal() {
+          modal.classList.remove("open");
+          modal.setAttribute("aria-hidden", "true");
+          trigger.focus();
+        }
+
+        trigger.addEventListener("click", openModal);
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", function (event) {
+          if (event.target === modal) closeModal();
         });
-
-        document.querySelectorAll(".collapsible").forEach(function (button) {
-          var content = button.nextElementSibling;
-          if (!content || !content.classList.contains("content")) return;
-
-          button.addEventListener("click", function () {
-            button.classList.toggle("active");
-            var isOpen = content.style.display === "block";
-            content.style.display = isOpen ? "none" : "block";
-          });
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && modal.classList.contains("open")) closeModal();
         });
       })();
-    </script>
 
-    <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <div id="particles-js"></div>
-    <script>
-      particlesJS.load("particles-js", "particles_config/particlesjs-config-gray.json",
-      function(){
-          console.log("particles.json loaded...")
-      })
-    </script> -->
+      (function () {
+        var STORAGE_KEY = "theme-pref";
+        var root = document.documentElement;
+        var mql = window.matchMedia("(prefers-color-scheme: dark)");
+        var order = ["auto", "light", "dark"];
+        var labels = { auto: "Theme: Auto", light: "Theme: Day", dark: "Theme: Night" };
+        var btn = document.getElementById("theme-toggle");
+        if (!btn) return;
+
+        function apply(pref) {
+          var isDark = pref === "dark" || (pref === "auto" && mql.matches);
+          root.setAttribute("data-theme", isDark ? "dark" : "light");
+          root.setAttribute("data-theme-pref", pref);
+          btn.setAttribute("data-active", pref);
+          btn.setAttribute("title", labels[pref]);
+          btn.setAttribute("aria-label", labels[pref]);
+        }
+
+        apply(localStorage.getItem(STORAGE_KEY) || "auto");
+
+        mql.addEventListener("change", function () {
+          if ((localStorage.getItem(STORAGE_KEY) || "auto") === "auto") apply("auto");
+        });
+
+        btn.addEventListener("click", function () {
+          var current = localStorage.getItem(STORAGE_KEY) || "auto";
+          var next = order[(order.indexOf(current) + 1) % order.length];
+          localStorage.setItem(STORAGE_KEY, next);
+          apply(next);
+        });
+      })();
+
+      (function () {
+        var list = document.getElementById("research-list");
+        var selectedBtn = document.getElementById("research-filter-selected");
+        var allBtn = document.getElementById("research-filter-all");
+        if (!list || !selectedBtn || !allBtn) return;
+
+        function showSelected() {
+          list.classList.add("filter-selected");
+          selectedBtn.classList.add("is-active");
+          selectedBtn.setAttribute("aria-pressed", "true");
+          allBtn.classList.remove("is-active");
+          allBtn.setAttribute("aria-pressed", "false");
+        }
+
+        function showAll() {
+          list.classList.remove("filter-selected");
+          allBtn.classList.add("is-active");
+          allBtn.setAttribute("aria-pressed", "true");
+          selectedBtn.classList.remove("is-active");
+          selectedBtn.setAttribute("aria-pressed", "false");
+        }
+
+        selectedBtn.addEventListener("click", showSelected);
+        allBtn.addEventListener("click", showAll);
+      })();
+
+      (function () {
+        var yearEl = document.getElementById("footer-year");
+        var updatedEl = document.getElementById("footer-updated");
+        var modified = new Date(document.lastModified);
+        if (yearEl) yearEl.textContent = modified.getFullYear();
+        if (updatedEl) {
+          updatedEl.textContent = modified.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+        }
+      })();
+    </script>
 
   </body>
 </html>
