@@ -68,7 +68,7 @@
             <td class="cell-profile-bio">
               <h1 class="profile-name text-center">Chris Agia</h1>
               <p>
-                <strong>I am a final year CS PhD candidate at Stanford University</strong> in the <a href="https://ai.stanford.edu/">Stanford AI Lab (SAIL)</a>, where I'm advised by <a href="https://web.stanford.edu/~bohg/"><strong>Jeannette Bohg</strong></a>
+                <strong>I am a final year Computer Science PhD candidate at Stanford University</strong> in the <a href="https://ai.stanford.edu/">Stanford AI Lab (SAIL)</a>, where I'm advised by <a href="https://web.stanford.edu/~bohg/"><strong>Jeannette Bohg</strong></a>
                 and <a href="https://web.stanford.edu/~pavone/"><strong>Marco Pavone</strong></a>. My research spans several topics in AI, with a particular focus on systems that operate in the physical world (robots):</p>
                 <ol> 
                   <li>Increasing the reliability of AI-driven systems during deployment;</li> 
@@ -192,7 +192,9 @@
                 <div class="filter-nav" role="group" aria-label="Research filter">
                   <button type="button" id="research-filter-selected" class="filter-option" aria-pressed="false">show selected</button>
                   <span class="filter-separator">/</span>
-                  <button type="button" id="research-filter-all" class="filter-option is-active" aria-pressed="true">show all</button>
+                  <button type="button" id="research-filter-date" class="filter-option" aria-pressed="false">show all by date</button>
+                  <span class="filter-separator">/</span>
+                  <button type="button" id="research-filter-topic" class="filter-option is-active" aria-pressed="true">show all by topic</button>
                 </div>
               </div>
             </td>
@@ -208,14 +210,14 @@
                 I view these as facets of one system-level problem: toward agents that flexibly reason about and generalize to new tasks, whose behavior can be understood, safeguarded, and improved over time.
               </p>
               <p class="research-lede">
-                Papers and preprints are ordered by recency. Representative works are <span class="representative">highlighted in green</span>. Please see my <a href="https://scholar.google.com/citations?user=t8Em5FwAAAAJ&hl=en">Google Scholar</a> page for a complete and up-to-date list of papers.
+                Representative works are <span class="representative">highlighted in green</span>. Please see my <a href="https://scholar.google.com/citations?user=t8Em5FwAAAAJ&hl=en">Google Scholar</a> for a complete / up-to-date list of papers.
               </p>
             </td>
           </tr>
         </tbody></table>
 
         <div id="research-list">
-        <table class="tbl tbl--pad-top"><tbody>
+        <table class="tbl tbl--pad-top" data-topics="data"><tbody>
           <tr>
             <td class="cell-thumb">
               <img src="images/research/faktual.png" alt="clean-usnob" width="140" height="140">
@@ -237,7 +239,7 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--pad-top"><tbody>
+        <table class="tbl tbl--pad-top" data-topics="safety"><tbody>
           <tr>
             <td class="cell-thumb">
               <video width="140" src="images/research/robopair.mp4" type="video/mp4" muted autoplay loop></video>
@@ -260,7 +262,7 @@
           </tr>
         </tbody></table>
 
-        <table class="representative is-selected tbl tbl--pad-top"><tbody>
+        <table class="representative is-selected tbl tbl--pad-top" data-topics="reliability data"><tbody>
           <tr>
             <td class="cell-thumb">
               <video width="140" src="images/research/cupid.mp4" type="video/mp4" muted autoplay loop></video>
@@ -283,7 +285,7 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--surface tbl--pad-top"><tbody> 
+        <table class="tbl tbl--surface tbl--pad-top" data-topics="reliability"><tbody> 
           <tr>
             <td class="cell-thumb">
               <video width="140" src="images/research/robomonkey.mp4" type="video/mp4" muted autoplay loop></video>
@@ -304,7 +306,7 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--surface tbl--pad-top"><tbody> 
+        <table class="tbl tbl--surface tbl--pad-top" data-topics="safety"><tbody> 
           <tr>
             <td class="cell-thumb">
               <video width="140" src="images/research/fortress_drone.mp4" type="video/mp4" muted autoplay loop></video>
@@ -326,7 +328,7 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--surface tbl--pad-top"><tbody> 
+        <table class="tbl tbl--surface tbl--pad-top" data-topics="planning"><tbody> 
           <tr>
             <td class="cell-thumb">
               <video width="140" src="images/research/p2p_apple.mp4" type="video/mp4" muted autoplay loop></video>
@@ -351,7 +353,7 @@
           </tr>
         </tbody></table>
 
-        <table class="representative is-selected tbl tbl--pad-top"><tbody>
+        <table class="representative is-selected tbl tbl--pad-top" data-topics="reliability safety"><tbody>
           <tr>
             <td class="cell-thumb">
               <img src="images/research/sentinel_pushchair_ood.gif" alt="clean-usnob" width="140" height="140">
@@ -376,7 +378,7 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--surface tbl--pad-top"><tbody> 
+        <table class="tbl tbl--surface tbl--pad-top" data-topics="planning"><tbody> 
           <tr>
             <td class="cell-thumb">
               <img src="images/research/t2i_handover_bad.gif" alt="clean-usnob" width="140">
@@ -401,7 +403,7 @@
           </tr>
         </tbody></table>
         
-        <table class="representative is-selected tbl tbl--pad-top"><tbody>
+        <table class="representative is-selected tbl tbl--pad-top" data-topics="safety"><tbody>
           <tr>
             <td class="cell-thumb">
               <video width="140" src="images/research/aesop_llm.mp4" type="video/mp4" muted autoplay loop></video>
@@ -425,7 +427,7 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--surface tbl--pad-top"><tbody>
+        <table class="tbl tbl--surface tbl--pad-top" data-topics="data"><tbody>
           <tr>
             <td class="cell-thumb">
               <video width="140" height="80" src="images/research/cooking_droid_speed.mp4" type="video/mp4" muted autoplay loop></video>
@@ -448,7 +450,7 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--surface tbl--pad-top"><tbody>
+        <table class="tbl tbl--surface tbl--pad-top" data-topics="misc"><tbody>
           <tr>
             <td class="cell-thumb">
               <video width="140" height="80" src="images/research/dare_mission_concept.mp4" type="video/mp4" muted autoplay loop></video>
@@ -469,7 +471,7 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--surface tbl--pad-top"><tbody>
+        <table class="tbl tbl--surface tbl--pad-top" data-topics="data"><tbody>
           <tr>
             <td class="cell-thumb">
               <video width="140" height="80" src="images/research/openx_teaser.mp4" type="video/mp4" muted autoplay loop></video>
@@ -489,7 +491,7 @@
           </tr>
         </tbody></table>
 
-        <table class="representative is-selected tbl tbl--pad-top"><tbody>
+        <table class="representative is-selected tbl tbl--pad-top" data-topics="planning"><tbody>
           <tr>
             <td class="cell-thumb">
               <img src="images/research/t2m_task6.gif" alt="clean-usnob" width="140">
@@ -512,7 +514,7 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--surface tbl--pad-top"><tbody> 
+        <table class="tbl tbl--surface tbl--pad-top" data-topics="safety"><tbody> 
           <tr>
             <td class="cell-thumb">
               <img src="images/research/semantic_anomaly.png" alt="clean-usnob" width="140">
@@ -534,7 +536,7 @@
           </tr>
         </tbody></table>
 
-        <table class="representative is-selected tbl tbl--pad-top"><tbody>
+        <table class="representative is-selected tbl tbl--pad-top" data-topics="planning"><tbody>
           <tr>
             <td class="cell-thumb">
               <video width="140" height="80" src="images/research/stap_hook_reach.mp4" type="video/mp4" muted autoplay loop></video>
@@ -557,7 +559,7 @@
           </tr>
         </tbody></table>
 
-        <table class="representative is-selected tbl tbl--pad-top"><tbody>
+        <table class="representative is-selected tbl tbl--pad-top" data-topics="planning"><tbody>
           <tr>
             <td class="cell-thumb">
               <img src="images/research/taskography_3dsg.png" alt="clean-usnob" width="140">
@@ -577,7 +579,7 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--surface tbl--pad-top"><tbody>
+        <table class="tbl tbl--surface tbl--pad-top" data-topics="misc"><tbody>
           <tr>
             <td class="cell-thumb">
               <img src="images/research/aug_att_rl.gif" alt="clean-usnob" width="140" height="140">
@@ -597,7 +599,7 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--surface tbl--pad-top"><tbody>
+        <table class="tbl tbl--surface tbl--pad-top" data-topics="misc"><tbody>
           <tr>
             <td class="cell-thumb">
               <video width="140" height="140" src="images/research/sim2real_drl_rough_nav.mp4" type="video/mp4" muted autoplay loop></video>
@@ -616,13 +618,13 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--surface tbl--pad-top"><tbody> 
+        <table class="tbl tbl--surface tbl--pad-top" data-topics="misc"><tbody> 
           <tr>
             <td class="cell-thumb">
               <img src="images/research/sem_loc.gif" alt="clean-usnob" width="140">
             </td>
             <td width="75%" valign="middle">
-              <a href="papers/SemanticLoc-TIV-2021.pdf"><span class="paper-title">Lightweight Semantic-aided Localization with Spinning LiDAR Sensor</span></a>
+              <a href="papers/SemanticLoc-TIV-2021.pdf"><span class="paper-title">Lightweight Semantic-Aided Localization with Spinning LiDAR Sensor</span></a>
               <br>
               Yuan Ren, <a href="https://scholar.google.ca/citations?user=-rCulKwAAAAJ&hl=en">Bingbing Liu</a>, <a href="https://rancheng.github.io/about/">Ran Cheng</a>, <strong>Christopher Agia</strong>
               <br>
@@ -635,7 +637,7 @@
           </tr>
         </tbody></table>
 
-        <table class="representative tbl tbl--pad-top"><tbody>
+        <table class="representative tbl tbl--pad-top" data-topics="misc"><tbody>
           <tr>
             <td class="cell-thumb">
               <img src="images/research/s3cnet_demo.gif" alt="clean-usnob" width="140" height="140">
@@ -655,7 +657,7 @@
           </tr>
         </tbody></table>
 
-        <table class="tbl tbl--surface tbl--pad-top"><tbody>
+        <table class="tbl tbl--surface tbl--pad-top" data-topics="misc"><tbody>
           <tr>
             <td class="cell-thumb">
               <img src="images/research/ddvo_res.gif" alt="clean-usnob" width="140" height="140">
@@ -673,6 +675,12 @@
             </td>
           </tr>
         </tbody></table>
+
+        <h3 class="topic-heading" data-topic="reliability">Policy Reliability and Interpretability</h3>
+        <h3 class="topic-heading" data-topic="planning">Embodied Planning and Reasoning</h3>
+        <h3 class="topic-heading" data-topic="safety">Safety Reasoning and Failure Detection</h3>
+        <h3 class="topic-heading" data-topic="data">Data Curation and Robot Data</h3>
+        <h3 class="topic-heading" data-topic="misc">Misc.</h3>
         </div>
 
         <table class="tbl tbl--section-gap"><tbody>
@@ -907,29 +915,70 @@
       })();
 
       (function () {
+        // Topic order for the by-topic view; entries declare membership via
+        // data-topics, and an entry may belong to more than one topic.
+        var TOPIC_ORDER = ["reliability", "planning", "safety", "data", "misc"];
+
         var list = document.getElementById("research-list");
-        var selectedBtn = document.getElementById("research-filter-selected");
-        var allBtn = document.getElementById("research-filter-all");
-        if (!list || !selectedBtn || !allBtn) return;
+        if (!list) return;
+        var buttons = {
+          selected: document.getElementById("research-filter-selected"),
+          date: document.getElementById("research-filter-date"),
+          topic: document.getElementById("research-filter-topic")
+        };
+        if (!buttons.selected || !buttons.date || !buttons.topic) return;
 
-        function showSelected() {
-          list.classList.add("filter-selected");
-          selectedBtn.classList.add("is-active");
-          selectedBtn.setAttribute("aria-pressed", "true");
-          allBtn.classList.remove("is-active");
-          allBtn.setAttribute("aria-pressed", "false");
+        var topicViewBuilt = false;
+
+        // Duplicate multi-topic entries and assign a flex order that groups
+        // entries under their topic heading, newest first within each topic.
+        function buildTopicView() {
+          if (topicViewBuilt) return;
+          topicViewBuilt = true;
+
+          var entries = Array.prototype.slice.call(list.querySelectorAll("table[data-topics]"));
+          entries.forEach(function (entry, dateIndex) {
+            var topics = entry.getAttribute("data-topics").split(/\s+/).filter(Boolean);
+            entry.setAttribute("data-date-index", dateIndex);
+            entry.setAttribute("data-topic", topics[0]);
+            topics.slice(1).forEach(function (topic) {
+              var clone = entry.cloneNode(true);
+              clone.setAttribute("data-topic", topic);
+              clone.setAttribute("data-topic-clone", "true");
+              list.appendChild(clone);
+            });
+          });
+
+          var all = Array.prototype.slice.call(list.querySelectorAll("table[data-topic]"));
+          var position = 0;
+          TOPIC_ORDER.forEach(function (topic) {
+            var heading = list.querySelector('.topic-heading[data-topic="' + topic + '"]');
+            if (heading) heading.style.order = position++;
+            all
+              .filter(function (entry) { return entry.getAttribute("data-topic") === topic; })
+              .sort(function (a, b) {
+                return a.getAttribute("data-date-index") - b.getAttribute("data-date-index");
+              })
+              .forEach(function (entry) { entry.style.order = position++; });
+          });
         }
 
-        function showAll() {
-          list.classList.remove("filter-selected");
-          allBtn.classList.add("is-active");
-          allBtn.setAttribute("aria-pressed", "true");
-          selectedBtn.classList.remove("is-active");
-          selectedBtn.setAttribute("aria-pressed", "false");
+        function setMode(mode) {
+          if (mode === "topic") buildTopicView();
+          list.classList.toggle("filter-selected", mode === "selected");
+          list.classList.toggle("filter-topic", mode === "topic");
+          Object.keys(buttons).forEach(function (key) {
+            var active = key === mode;
+            buttons[key].classList.toggle("is-active", active);
+            buttons[key].setAttribute("aria-pressed", active ? "true" : "false");
+          });
         }
 
-        selectedBtn.addEventListener("click", showSelected);
-        allBtn.addEventListener("click", showAll);
+        Object.keys(buttons).forEach(function (key) {
+          buttons[key].addEventListener("click", function () { setMode(key); });
+        });
+
+        setMode("topic");
       })();
 
       (function () {

@@ -289,11 +289,43 @@ body {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Research list filtering (show selected / show all) */
+/* Research list filtering (selected / by date / by topic) */
 /* -------------------------------------------------------------------------- */
 
 #research-list.filter-selected > table:not(.is-selected) {
   display: none;
+}
+
+/* Topic headings and duplicate entries exist only in the by-topic view. */
+#research-list .topic-heading,
+#research-list [data-topic-clone] {
+  display: none;
+}
+
+#research-list.filter-topic {
+  display: flex;
+  flex-direction: column;
+}
+
+#research-list.filter-topic .topic-heading {
+  display: block;
+}
+
+#research-list.filter-topic [data-topic-clone] {
+  display: table;
+}
+
+.topic-heading {
+  margin: 26px 0 0 0;
+  padding: 0 20px 6px 20px;
+  font-family: "Libre Franklin", Verdana, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--color-text);
+}
+
+#research-list.filter-topic .topic-heading:first-of-type {
+  margin-top: 8px;
 }
 
 /* -------------------------------------------------------------------------- */
