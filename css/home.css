@@ -34,6 +34,19 @@
   --color-footer-text: #1a1a1a;
 }
 
+/* Scale the whole page up on wide screens so the narrow column doesn't look zoomed out. */
+@media (min-width: 1280px) {
+  html {
+    zoom: 1.15;
+  }
+}
+
+@media (min-width: 1680px) {
+  html {
+    zoom: 1.25;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -564,6 +577,14 @@ main table.tbl:has(> tbody > tr > td.cell-thumb):hover {
   padding: 20px;
   width: 25%;
   vertical-align: middle;
+}
+
+/* Keep thumbnails at their previous size on phones so the text column isn't squeezed. */
+@media (max-width: 480px) {
+  .cell-thumb img,
+  .cell-thumb video {
+    zoom: 0.8;
+  }
 }
 
 .cell-full {
